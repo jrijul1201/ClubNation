@@ -105,12 +105,28 @@ userRouter.post("/login", (req, res) => {
 
     // if (user) {
     // const { _id, name, username, email, phone, univ } = req.user;
-    const tokenn = signToken(token);
-    res.cookie("access_token", tokenn, { httpOnly: true, sameSite: true });
-    res.status(200).json({
-      isAuthenticated: true,
-      user: req.user,
-    });
+    if (
+      user.email.slice(-24, -1) + user.email.slice(-1) ===
+      "@students.iitmandi.ac.in"
+      // true
+    ) {
+      const tokenn = signToken(token);
+      res.cookie("access_token", tokenn, { httpOnly: true, sameSite: true });
+      res.status(200).json({
+        isAuthenticated: true,
+        user: req.user,
+      });
+    } else {
+      res.status(500).json({
+        message: {
+          msgBody: "Please login via edu email id only",
+          msgError: true,
+        },
+        user: { name: "", username: "", email: "", phone: "", univ: " " },
+        success: true,
+        isAuthenticated: false,
+      });
+    }
     // }
   };
   ticket();

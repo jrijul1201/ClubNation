@@ -7,6 +7,7 @@ eventRouter.post("/addevent", (req, res) => {
   const { title, date,time,reglink,description} = req.body;
   const newEvent = new Event({
     title,
+    img,
      date,
      time,
      reglink,

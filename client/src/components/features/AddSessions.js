@@ -74,6 +74,7 @@ const AddSessions = ({
 }) => {
     const [session, setSession] = useState({
         title: "",
+        img:"",
         date: "",
         time: "",
         mlink: "",
@@ -96,6 +97,7 @@ const AddSessions = ({
     const resetForm = () => {
         setSession({
             title: "",
+            img:"",
             date: "",
             time: "",
             mlink: "",
@@ -159,7 +161,7 @@ const AddSessions = ({
                         <Heading>Add Sessions</Heading>
                         <p align="center">
                             <Description>
-                                Add title, date, time, meeting link, description, recording link</Description>
+                                Add title,poster, date, time, meeting link, description, recording link</Description>
                         </p>
                     </HeaderContent>
                     <br />
@@ -173,6 +175,14 @@ const AddSessions = ({
                             onChange={onChange}
                             placeholder="Title"
                         />
+                          <Input
+                            type="text"
+                            name="imglink"
+                            value={session.img}
+                            onChange={onChange}
+                            placeholder="Poster Img Link"
+                        />
+
                         <Input
                             type="text"
                             name="date"

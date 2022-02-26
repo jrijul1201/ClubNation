@@ -4,6 +4,8 @@ import React from "react";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import PrivateRoute from "./hocs/PrivateRoute";
 import UnPrivateRoute from "./hocs/UnPrivateRoute";
+import AdminRoute from "./hocs/AdminRoute";
+import StudentRoute from "./hocs/StudentRoute";
 import Todos from "./components/Todos";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -111,10 +113,13 @@ import SignupPage from "pages/Signup.js";
 
 import ComponentRenderer from "ComponentRenderer.js";
 import MainLandingPage from "demos/EventLandingPage.js";
+import Home from "demos/Home.js";
+import StudentLanding from "demos/StudentLanding.js";
 // import Admin from "demos/Admin.js";
 import OldLandingPage from "MainLandingPage.js";
 import ThankYouPage from "ThankYouPage.js";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import AdminLanding from "demos/AdminLanding";
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
   // return <AnimationRevealPage disabled>xxxxxxxxxx</AnimationRevealPage>;
@@ -136,7 +141,8 @@ export default function App() {
         </Route> */}
         {/* <UnPrivateRoute path="/login" component={LoginPage} /> */}
         {/* <UnPrivateRoute path="/register" component={SignupPage} /> */}
-        {/* <PrivateRoute path="/todos" component={Todos} /> */}
+        <StudentRoute path="/student" component={StudentLanding} />
+        <AdminRoute path="/admin" component={AdminLanding} />
         <Route path="/oldLandingPage">
           <OldLandingPage />
         </Route>
@@ -151,7 +157,7 @@ export default function App() {
         </Route>
         {/* <PrivateRoute path="/admin" component={Admin} /> */}
         <Route path="/">
-          <MainLandingPage />
+          <Home />
         </Route>
       </Switch>
     </Router>

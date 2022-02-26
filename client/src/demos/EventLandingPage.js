@@ -48,13 +48,13 @@ export default () => {
             // imageSrc="https://user-images.githubusercontent.com/83131033/149828025-baeec356-9307-4f05-8dcc-fa5de8f8db8d.png"
           />
         </div>
-        </AnimationRevealPage>
         {/* <div id="login">
           <LoginSignup />
         </div> */}
         <div id="letstalk">
           <LetUsTalk />
         </div>
+        </AnimationRevealPage>
         <Footer />
       </>
     );
@@ -65,7 +65,6 @@ export default () => {
       <>
         <AnimationRevealPage>
           <Hero getstarted="#bookaslot" />
-        </AnimationRevealPage>
         {/* <div id="bookaslot">
           <SlotBooking />
         </div> */}
@@ -89,11 +88,12 @@ export default () => {
             buttonRounded={false}
             primaryButtonText="Contact Us"
             // imageSrc="https://user-images.githubusercontent.com/83131033/149828025-baeec356-9307-4f05-8dcc-fa5de8f8db8d.png"
-          />
+            />
         </div>
+        </AnimationRevealPage>
        {/* <div id="changepwd">
           <ChangePwd />
-        </div>
+          </div>
       <Footer />*/}
         <Footer />
       </>
@@ -104,7 +104,6 @@ export default () => {
       <>
         <AnimationRevealPage>
           <HeroAdmin getstarted="#bookaslot" />
-        </AnimationRevealPage>
         <div id="bookaslot">
           <AdminSlotBooking />
         </div>
@@ -133,8 +132,10 @@ export default () => {
         </div> */}
        {/* <div id="changepwd">
           <ChangePwd />
-        </div>
-      <Footer />*/}
+          </div>
+          */}
+        <Footer />
+        </AnimationRevealPage>
       </>
     );
   };

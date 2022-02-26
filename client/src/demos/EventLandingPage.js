@@ -90,9 +90,10 @@ export default () => {
             // imageSrc="https://user-images.githubusercontent.com/83131033/149828025-baeec356-9307-4f05-8dcc-fa5de8f8db8d.png"
           />
         </div>
-        <div id="changepwd">
+       {/* <div id="changepwd">
           <ChangePwd />
         </div>
+      <Footer />*/}
         <Footer />
       </>
     );
@@ -119,10 +120,10 @@ export default () => {
         {/* <div id="userdetails">
           <UserDetails />
         </div> */}
-        <div id="changepwd">
+       {/* <div id="changepwd">
           <ChangePwd />
         </div>
-        <Footer />
+      <Footer />*/}
       </>
     );
   };

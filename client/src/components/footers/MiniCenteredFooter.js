@@ -52,7 +52,7 @@ export default () => {
         <Link href="#events">Events</Link>
         <Link href="#sessions">Sessions</Link>
         <Link href="#letstalk">Request/Idea Panel</Link>
-        <Link href="#about">About</Link>
+      
      
       </>
     );

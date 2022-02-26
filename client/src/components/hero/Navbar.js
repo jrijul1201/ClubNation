@@ -91,7 +91,7 @@ const Navbar = (props) => {
         <NavLink href="#sessions">Sessions</NavLink>
         <NavLink href="#letstalk">Request/Idea Panel</NavLink>
         {/* <NavLink href="#letstalk">Basic Stock Market Course</NavLink>*/}
-        <NavLink href="#about">About</NavLink>
+      {/*  <NavLink href="#about">About</NavLink>*/}
         {/* <NavLink href="/#/Todos">Todos</NavLink> */}
         {/* <NavLink onClick={onClickLogoutHandler} href="#">
           Logout

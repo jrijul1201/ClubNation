@@ -123,7 +123,7 @@ const Navbar = (props) => {
     }
   };
   const handleFailure = (result) => {
-    alert(result);
+    alert("Login failed. Please try again later.");
   };
   const handleLogin = (result) => {
     AuthService.login({ token: result.tokenId }).then((data) => {

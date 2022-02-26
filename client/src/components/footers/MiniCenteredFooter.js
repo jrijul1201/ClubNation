@@ -79,7 +79,8 @@ export default () => {
       <Content>
         <Row>
           <LogoContainer>
-            <LogoImg src={logo} />
+            <a href="/">
+            <LogoImg src={logo} /></a>
           </LogoContainer>
           <LinksContainer>{footerLinks()}</LinksContainer>
           <SocialLinksContainer>
@@ -100,7 +101,7 @@ export default () => {
               <DiscordIcon />
             </SocialLink> */}
             <SocialLink
-              href="https://instagram.com/capibulladvisors?utm_medium=copy_link"
+              href="https://instagram.com"
               target={"_blank"}
             >
               <InstagramIcon />

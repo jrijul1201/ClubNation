@@ -73,7 +73,8 @@ const Navbar = (props) => {
       <>
         <NavLink href="/">Home</NavLink>
         <NavLink href="#userdetails">Events</NavLink>
-        <NavLink href="#userdetails">Sessions</NavLink>
+        <NavLink href="#addsessions">Add Sessions</NavLink>
+        <NavLink href="#sessions">Sessions</NavLink>
         <NavLink href="#resources">Request/Idea Panel</NavLink>
         {/* <NavLink href="#letstalk">Basic Stock Market Course</NavLink>*/}
         <NavLink href="#about">About</NavLink>

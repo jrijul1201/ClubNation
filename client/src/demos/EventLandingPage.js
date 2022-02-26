@@ -70,6 +70,10 @@ export default () => {
         <div id="resources">
           <Resources />
         </div>
+    
+        <div id="sessions">
+        <UserDetails />
+        </div>
         <div id="letstalk">
           <LetUsTalk />
         </div>

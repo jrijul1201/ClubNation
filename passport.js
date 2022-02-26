@@ -2,6 +2,8 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const JwtStrategy = require("passport-jwt").Strategy;
 const User = require("./models/User");
+const { OAuth2Client } = require('google-auth-library');
+const client = new OAuth2Client("373151948151-7ucdilvhgce7u17fv2s1vs67bbvjesh3.apps.googleusercontent.com");
 
 const cookieExtractor = (req) => {
   let token = null;
@@ -19,25 +21,39 @@ passport.use(
       secretOrKey: "NoobCoder",
     },
     (payload, done) => {
-      User.findById({ _id: payload.sub }, (err, user) => {
-        if (err) return done(err, false);
-        if (user) return done(null, user);
-        else return done(null, false);
+      // User.findById({ _id: payload.sub }, (err, user) => {
+      //   if (err) return done(err, false);
+      //   if (user) return done(null, user);
+      //   else return done(null, false);
+      // });
+      const ticket = async () => {
+      const ticket = await client.verifyIdToken({
+        idToken: payload.sub,
+        // audience: process.env.CLIENT_ID,
       });
+      const user = ticket.getPayload();
+      if (user) {
+        return done(null, user);
+      } else return done(null, false);
     }
+    ticket();
+  }
   )
 );
 
 // authenticated local strategy using username and password
-passport.use(
-  new LocalStrategy((username, password, done) => {
-    User.findOne({ username }, (err, user) => {
-      // something went wrong with database
-      if (err) return done(err);
-      // if no user exist
-      if (!user) return done(null, false);
-      // check if password is correct
-      user.comparePassword(password, done);
-    });
-  })
-);
+// passport.use(
+//   new LocalStrategy((token, done) => {
+//     console.log("dgjhgdshj", token);
+//     // User.findOne({ username }, (err, user) => {
+//     //   // something went wrong with database
+//     //   if (err) return done(err);
+//     //   // if no user exist
+//     //   if (!user) return done(null, false);
+//     //   // check if password is correct
+//     //   // user.comparePassword(password, done);
+//     //   return done(user,true);
+//     // });
+//     return done(null,true);
+//   })
+// );

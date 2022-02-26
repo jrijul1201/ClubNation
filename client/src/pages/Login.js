@@ -16,7 +16,9 @@ import Message from "../components/Message";
 import { AuthContext } from "../Context/AuthContext";
 import firebase from "./firebase";
 import { SplitButton } from "react-bootstrap";
-import ReactDOM from 'react-dom';
+import { GoogleLogin } from "react-google-login";
+
+import ReactDOM from "react-dom";
 const Container = tw(
   ContainerBase
 )`min-h-screen bg-primary-900 text-white font-medium flex justify-center`;
@@ -63,7 +65,12 @@ const IllustrationImage = styled.div`
 `;
 
 const Login = (props) => {
-  const [user, setUser] = useState({ username: "", password: "", phone: "", otp: "", });
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+    phone: "",
+    otp: "",
+  });
   const [message, setMessage] = useState(null);
   const authContext = useContext(AuthContext);
   const resetForm = () => {
@@ -91,36 +98,33 @@ const Login = (props) => {
   const validate = () => {
     if (!user.username) {
       check = false;
-      ReactDOM.render(usernameEr, document.getElementById('usernameE'));
-
+      ReactDOM.render(usernameEr, document.getElementById("usernameE"));
     }
     if (user.username) {
-      ReactDOM.render(gen, document.getElementById('usernameE'));
-
+      ReactDOM.render(gen, document.getElementById("usernameE"));
     }
     if (!user.password) {
       check = false;
-      ReactDOM.render(pswdEr, document.getElementById('pswdE'));
-
+      ReactDOM.render(pswdEr, document.getElementById("pswdE"));
     }
     if (user.password) {
-      ReactDOM.render(gen, document.getElementById('pswdE'));
+      ReactDOM.render(gen, document.getElementById("pswdE"));
     }
     if (!user.phone & !pwd) {
       check = false;
-      ReactDOM.render(phoneEr, document.getElementById('phoneE'));
+      ReactDOM.render(phoneEr, document.getElementById("phoneE"));
     }
     if (user.phone & !pwd) {
-      ReactDOM.render(gen, document.getElementById('phoneE'));
+      ReactDOM.render(gen, document.getElementById("phoneE"));
     }
     if (!user.otp & show) {
       check = false;
-      ReactDOM.render(otpEr, document.getElementById('otpE'));
+      ReactDOM.render(otpEr, document.getElementById("otpE"));
     }
     if (user.otp & show) {
-      ReactDOM.render(gen, document.getElementById('otpE'));
+      ReactDOM.render(gen, document.getElementById("otpE"));
     }
-  }
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -135,7 +139,13 @@ const Login = (props) => {
           authContext.setUser(user);
           authContext.setIsAuthenticated(isAuthenticated);
           //props.history.push('/todos');
-        } else { ReactDOM.render(<h1>Please enter valid credentials.</h1>, document.getElementById('pswdE')); setMessage(message); }
+        } else {
+          ReactDOM.render(
+            <h1>Please enter valid credentials.</h1>,
+            document.getElementById("pswdE")
+          );
+          setMessage(message);
+        }
       });
     }
   };
@@ -155,11 +165,11 @@ const Login = (props) => {
   };
   const onVerify = (e) => {
     e.preventDefault();
-   
+
     check = true;
     validate();
     if (check) {
-      alert("alert")
+      alert("alert");
       configureCaptcha();
       setShow(true);
       console.log(user.phone);
@@ -238,10 +248,7 @@ const Login = (props) => {
       onChange={onChange}
       placeholder="Password"
     />,
-    <div id="pswdE" style={{ fontSize: 12, color: "red" }}>
-
-    </div>
-
+    <div id="pswdE" style={{ fontSize: 12, color: "red" }}></div>,
   ];
   const phoneForm = [
     <Input
@@ -251,8 +258,7 @@ const Login = (props) => {
       onChange={onChange}
       placeholder="Phone Number"
     />,
-    <div id="phoneE" style={{ fontSize: 12, color: "red" }}></div>
-
+    <div id="phoneE" style={{ fontSize: 12, color: "red" }}></div>,
   ];
   const otpForm = [
     <>
@@ -262,7 +268,6 @@ const Login = (props) => {
         value={user.otp}
         onChange={onChange}
         placeholder="O.T.P. Number"
-
       />
       <div id="otpE" style={{ fontSize: 12, color: "red" }}></div>
       <SubmitButton type="submit" onClick={onSubmitOTP}>
@@ -271,11 +276,35 @@ const Login = (props) => {
       </SubmitButton>
     </>,
   ];
+  const handleFailure = (result) => {
+    alert(result);
+  };
+  const handleLogin = (result) => {
+    AuthService.login({ token: result.tokenId }).then((data) => {
+      console.log(data);
+      const { isAuthenticated, user, message } = data;
+      if (isAuthenticated) {
+        authContext.setUser(user);
+        authContext.setIsAuthenticated(isAuthenticated);
+        //props.history.push('/todos');
+      } else {
+        alert(message.msgBody);
+        setMessage(message);
+      }
+    });
+  };
   return (
     // <AnimationRevealPage>
     <Container>
       <Content>
         <MainContainer>
+          <GoogleLogin
+            clientId="373151948151-7ucdilvhgce7u17fv2s1vs67bbvjesh3.apps.googleusercontent.com"
+            buttonText="Log in with Google"
+            onSuccess={handleLogin}
+            onFailure={handleFailure}
+            cookiePolicy={"single_host_origin"}
+          />
           <LogoLink href="#">
             <LogoImage src={logo} />
           </LogoLink>
@@ -303,9 +332,10 @@ const Login = (props) => {
                   onChange={onChange}
                   placeholder="Username"
                 />
-                <div id="usernameE" style={{ fontSize: 12, color: "red" }}>
-
-                </div>
+                <div
+                  id="usernameE"
+                  style={{ fontSize: 12, color: "red" }}
+                ></div>
 
                 {/* <Input 
                 type="password" 

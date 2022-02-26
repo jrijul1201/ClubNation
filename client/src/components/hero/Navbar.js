@@ -36,9 +36,16 @@ const SocialLink = styled.a`
 `;
 
 const Navbar = (props) => {
-  const { isAuthenticated, user, setIsAuthenticated, setUser } =
-    useContext(AuthContext);
-  const isAdmin = user.username === "admin";
+  const {
+    user,
+    setUser,
+    isAuthenticated,
+    setIsAuthenticated,
+    isAdmin,
+    setIsAdmin,
+  } = useContext(AuthContext);
+
+  // console.log("navbar", user);
   const onClickLogoutHandler = () => {
     AuthService.logout().then((data) => {
       if (data.success) {
@@ -68,9 +75,10 @@ const Navbar = (props) => {
       <>
         <NavLink href="/">Home</NavLink>
         <NavLink href="#userdetails">Events</NavLink>
-        <NavLink href="#userdetails">Sessions</NavLink>
+        <NavLink href="#addsessions">Add Sessions</NavLink>
+        <NavLink href="#sessions">Sessions</NavLink>
         <NavLink href="#resources">Request/Idea Panel</NavLink>
-       {/* <NavLink href="#letstalk">Basic Stock Market Course</NavLink>*/}
+        {/* <NavLink href="#letstalk">Basic Stock Market Course</NavLink>*/}
         <NavLink href="#about">About</NavLink>
         {/* <NavLink href="/#/Todos">Todos</NavLink> */}
         <NavLink onClick={onClickLogoutHandler} href="#">
@@ -93,6 +101,7 @@ const Navbar = (props) => {
       </>
     );
   };
+  // const isAdmin = user ? user.email === "pc@students.iitmandi.ac.in" : false;
 
   const navlinks = () => {
     if (!isAuthenticated) return unauthenticatedNavBar();
@@ -111,7 +120,10 @@ const Navbar = (props) => {
         {/* <SocialLink href="https://twitter.com" target={"_blank"}>
           <TwitterIcon />
         </SocialLink> */}
-        <SocialLink href="https://www.youtube.com/channel/UCSmPXl_J3u9AmRUyveXptPw/featured" target={"_blank"}>
+        <SocialLink
+          href="https://www.youtube.com/channel/UCSmPXl_J3u9AmRUyveXptPw/featured"
+          target={"_blank"}
+        >
           <YoutubeIcon />
         </SocialLink>
         <SocialLink

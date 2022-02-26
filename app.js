@@ -2,9 +2,6 @@ const express = require('express');
 const cors = require("cors");
 const app = express();
 const cookieParser = require('cookie-parser');
-const { OAuth2Client } = require('google-auth-library');
-const client = new OAuth2Client("373151948151-7ucdilvhgce7u17fv2s1vs67bbvjesh3.apps.googleusercontent.com");
-
 
 const mongoose = require('mongoose');
 app.use(cookieParser());
@@ -40,27 +37,6 @@ app.use('/slotbooked',slotsbookedRouter);
 
 const statsRouter = require('./routes/Stats');
 app.use('/stat',statsRouter);
-
-const users = [];
-
-function upsert(array, item) {
-  const i = array.findIndex((_item) => _item.email === item.email);
-  if (i > -1) array[i] = item;
-  else array.push(item);
-}
-
-app.post('/api/google-login', async (req, res) => {
-  const { token } = req.body;
-  const ticket = await client.verifyIdToken({
-    idToken: token,
-    audience: process.env.CLIENT_ID,
-  });
-  const { name, email, picture } = ticket.getPayload();
-  upsert(users, { name, email, picture });
-  res.status(201);
-  res.json({ name, email, picture });
-});
-
 
 const PORT = process.env.PORT || 5000;
 

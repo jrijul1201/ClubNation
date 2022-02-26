@@ -31,9 +31,9 @@ const SocialLink = styled.a`
 
 const CopyrightText = tw.p`text-center mt-10 font-medium tracking-wide text-sm text-gray-600`;
 export default () => {
-  const { isAuthenticated, user, setIsAuthenticated, setUser } =
-    useContext(AuthContext);
-  const isAdmin = user.username === "admin";
+  const {user,setUser,isAuthenticated,setIsAuthenticated,isAdmin,setIsAdmin} =
+  useContext(AuthContext);
+
   const unauthenticatedFooter = () => {
     return (
       <>
@@ -66,6 +66,7 @@ export default () => {
       </>
     );
   };
+
   const footerLinks = () => {
     if (!isAuthenticated) return unauthenticatedFooter();
     else {
@@ -89,11 +90,15 @@ export default () => {
               <TwitterIcon />
             </SocialLink> */}
             {/* <SocialLink href="https://www.youtube.com/channel/UCSmPXl_J3u9AmRUyveXptPw/featured" target={"_blank"}>
+            <SocialLink
+              href="https://www.youtube.com/channel/UCSmPXl_J3u9AmRUyveXptPw/featured"
+              target={"_blank"}
+            >
               <YoutubeIcon />
             </SocialLink>
             <SocialLink href="https://discord.gg/F6r2DYd6Z6" target={"_blank"}>
-          <DiscordIcon />
-        </SocialLink>
+              <DiscordIcon />
+            </SocialLink>
             <SocialLink
               href="https://instagram.com/capibulladvisors?utm_medium=copy_link"
               target={"_blank"}

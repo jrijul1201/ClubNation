@@ -25,12 +25,14 @@ const Subheading = tw.span`uppercase tracking-wider text-sm`;
 
 export default () => {
   const {
-    isAuthenticated,
     user,
+    setUser,
+    isAuthenticated,
     setIsAuthenticated,
-    setUser
+    isAdmin,
+    setIsAdmin,
   } = useContext(AuthContext);
-  const isAdmin = (user.username === "admin");
+
   const unauthenticatedLP = () => {
     return (
       <>
@@ -62,11 +64,15 @@ export default () => {
         <AnimationRevealPage>
           <Hero getstarted="#bookaslot" />
         </AnimationRevealPage>
-        <div id="bookaslot">
+        {/* <div id="bookaslot">
           <SlotBooking />
-        </div>
+        </div> */}
         <div id="resources">
           <Resources />
+        </div>
+    
+        <div id="sessions">
+        <UserDetails />
         </div>
         <div id="letstalk">
           <LetUsTalk />
@@ -96,19 +102,19 @@ export default () => {
         <div id="bookaslot">
           <AdminSlotBooking />
         </div>
-        <div>
-        <SlotsBooked/>
-        </div>
+        {/* <div>
+          <SlotsBooked />
+        </div> */}
         <div id="addsessions">
           <AddSessions />
         </div>
         <div id="addresources">
           <AddResources />
         </div>
-      
-        <div id="userdetails">
+
+        {/* <div id="userdetails">
           <UserDetails />
-        </div>
+        </div> */}
         <div id="changepwd">
           <ChangePwd />
         </div>

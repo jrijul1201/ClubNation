@@ -26,6 +26,8 @@ app.use('/resource',resourceRouter);
 const slotRouter = require('./routes/Slot');
 app.use('/slot',slotRouter);
 
+const sessionRouter = require('./routes/Session');
+app.use('/session',sessionRouter);
 
 const contactRouter = require('./routes/Contact');
 app.use('/con',contactRouter);

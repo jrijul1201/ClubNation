@@ -103,9 +103,9 @@ const Navbar = (props) => {
     return (
       <>
         <NavLink href="/">Home</NavLink>
-        <NavLink href="#userdetails">Events</NavLink>
-        <NavLink href="#addsessions">Add Events</NavLink>
-        <NavLink href="#userdetails">Sessions</NavLink>
+        <NavLink href="#events">Events</NavLink>
+        <NavLink href="#addevents">Add Events</NavLink>
+        <NavLink href="#sessions">Sessions</NavLink>
         <NavLink href="#addsessions">Add Sessions</NavLink>
         <NavLink href="#userdetails">Team</NavLink>
         {/* <NavLink onClick={onClickLogoutHandler} href="#">
@@ -119,7 +119,7 @@ const Navbar = (props) => {
   const navlinks = () => {
     if (!isAuthenticated) return unauthenticatedNavBar();
     else {
-      if (isAdmin) return adminNavBar();
+      if (!isAdmin) return adminNavBar();
       else return authenticatedNavBar();
     }
   };

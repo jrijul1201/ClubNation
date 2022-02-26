@@ -161,7 +161,7 @@ const Navbar = (props) => {
         >
           <InstagramIcon />
         </SocialLink>
-        <SocialLink href="https://discord.gg/F6r2DYd6Z6" target={"_blank"}>
+        <SocialLink href="https://discord.gg/F6r2DYd6Z6"  target={"_blank"}> 
           <DiscordIcon />
         </SocialLink>
       </SocialLinksContainer> */}

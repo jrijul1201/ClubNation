@@ -64,8 +64,8 @@ const Navbar = (props) => {
     <NavLink href="#letstalk">Basic Stock Market Course</NavLink>*/}
         {/* <NavLink href="#userdetails">Events</NavLink>
         <NavLink href="#userdetails">Sessions</NavLink> */}
-        <NavLink href="#about">About</NavLink>
-        <NavLink href="#login">Login</NavLink>
+        <NavLink href="#about" scroll-smooth>About</NavLink>
+        <NavLink href="#login" scroll-smooth>Login</NavLink>
       </>
     );
   };
@@ -114,13 +114,13 @@ const Navbar = (props) => {
     <NavLinks key={1}> {navlinks()}</NavLinks>,
     <NavLinks key={2}>
       <SocialLinksContainer>
-        {/* <SocialLink href="https://facebook.com" target={"_blank"}>
+        <SocialLink href="https://facebook.com" target={"_blank"}>
           <FacebookIcon />
-        </SocialLink> */}
-        {/* <SocialLink href="https://twitter.com" target={"_blank"}>
+        </SocialLink> 
+        <SocialLink href="https://twitter.com" target={"_blank"}>
           <TwitterIcon />
-        </SocialLink> */}
-        <SocialLink
+        </SocialLink>
+         <SocialLink
           href="https://www.youtube.com/channel/UCSmPXl_J3u9AmRUyveXptPw/featured"
           target={"_blank"}
         >
@@ -132,9 +132,9 @@ const Navbar = (props) => {
         >
           <InstagramIcon />
         </SocialLink>
-        <SocialLink href="https://discord.gg/F6r2DYd6Z6" target={"_blank"}>
+        <SocialLink href="https://discord.gg/F6r2DYd6Z6"  target={"_blank"}> 
           <DiscordIcon />
-        </SocialLink>
+        </SocialLink> 
       </SocialLinksContainer>
     </NavLinks>,
   ];

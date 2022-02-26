@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { Container as ContainerBase } from "components/misc/Layouts.js";
-import logo from "../../images/logo3.png";
+import logo from "../../images/2-removebg-preview.png";
 import { ReactComponent as FacebookIcon } from "../../images/facebook-icon.svg";
 import { ReactComponent as TwitterIcon } from "../../images/twitter-icon.svg";
 import { ReactComponent as YoutubeIcon } from "../../images/youtube-icon.svg";
@@ -16,7 +16,7 @@ const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
 const Row = tw.div`flex items-center justify-center flex-col px-8`;
 
 const LogoContainer = tw.div`flex items-center justify-center md:justify-start`;
-const LogoImg = tw.img`w-24`;
+const LogoImg = tw.img`w-40`;
 const LogoText = tw.h5`ml-2 text-2xl font-black tracking-wider`;
 const LinksContainer = tw.div`mt-8 font-medium flex flex-wrap justify-center items-center flex-col sm:flex-row`;
 const Link = tw.a`border-b-2 border-transparent hocus:text-gray-300 hocus:border-gray-300 pb-1 transition duration-300 mt-2 mx-4`;
@@ -38,9 +38,9 @@ export default () => {
     return (
       <>
         <Link href="/">Home</Link>
-        <Link href="#login">Book a Slot</Link>
-        <Link href="#login">Resources</Link>
-        <Link href="#letstalk">Basic Stock Market Course</Link>
+        <Link href="#login">Login</Link>
+        {/* <Link href="#login">Resources</Link>
+        <Link href="#letstalk">Basic Stock Market Course</Link> */}
         <Link href="#about">About</Link>
       </>
     );
@@ -81,14 +81,14 @@ export default () => {
             <LogoImg src={logo} />
           </LogoContainer>
           <LinksContainer>{footerLinks()}</LinksContainer>
-          <SocialLinksContainer>
+          {/* <SocialLinksContainer> */}
             {/* <SocialLink href="https://facebook.com" target={"_blank"}>
               <FacebookIcon />
             </SocialLink>
             <SocialLink href="https://twitter.com" target={"_blank"}>
               <TwitterIcon />
             </SocialLink> */}
-            <SocialLink href="https://www.youtube.com/channel/UCSmPXl_J3u9AmRUyveXptPw/featured" target={"_blank"}>
+            {/* <SocialLink href="https://www.youtube.com/channel/UCSmPXl_J3u9AmRUyveXptPw/featured" target={"_blank"}>
               <YoutubeIcon />
             </SocialLink>
             <SocialLink href="https://discord.gg/F6r2DYd6Z6" target={"_blank"}>
@@ -99,12 +99,12 @@ export default () => {
               target={"_blank"}
             >
               <InstagramIcon />
-            </SocialLink>
-          </SocialLinksContainer>
-          <CopyrightText>
+            </SocialLink> */}
+          {/* </SocialLinksContainer> */}
+          {/* <CopyrightText>
             Made with ❤️ by Team Rivets &copy; Copyright 2022, CapiBull Inc. All
             Rights Reserved.
-          </CopyrightText>
+          </CopyrightText> */}
         </Row>
       </Content>
     </Container>

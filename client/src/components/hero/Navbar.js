@@ -55,6 +55,8 @@ const Navbar = (props) => {
         {/*NavLink href="#login">Book a Slot</NavLink>
         <NavLink href="#login">Resources</NavLink>
     <NavLink href="#letstalk">Basic Stock Market Course</NavLink>*/}
+        {/* <NavLink href="#userdetails">Events</NavLink>
+        <NavLink href="#userdetails">Sessions</NavLink> */}
         <NavLink href="#about">About</NavLink>
         <NavLink href="#login">Login</NavLink>
       </>

@@ -102,7 +102,7 @@ export default ({
             imageRounded={imageRounded}
           />
           {imageDecoratorBlob && <DecoratorBlob css={imageDecoratorBlobCss} />}
-          <Text> Aryan Jain - Founder {"&"} CEO</Text>
+          {/* <Text> Aryan Jain - Founder {"&"} CEO</Text> */}
         </ImageColumn>
         <TextColumn textOnLeft={textOnLeft}>
           <TextContent>
@@ -117,7 +117,7 @@ export default ({
                 {primaryButtonText}
               </PrimaryButton> */}
             <SocialLinksContainer>
-              <SocialLink href="https://www.facebook.com/aryan.jain.923" target={"_blank"}>
+              {/* <SocialLink href="https://www.facebook.com/aryan.jain.923" target={"_blank"}>
                 <FacebookIcon />
               </SocialLink>
               <SocialLink
@@ -125,16 +125,16 @@ export default ({
                 target={"_blank"}
               >
                 <LinkdInIcon />
-              </SocialLink>
+              </SocialLink> */}
               {/* <SocialLink href="https://twitter.com" target={"_blank"}>
                 <TwitterIcon />
               </SocialLink> */}
-              <SocialLink
+              {/* <SocialLink
                 href="https://instagram.com/aryanjain.wav?utm_medium=copy_link"
                 target={"_blank"}
               >
                 <InstagramIcon />
-              </SocialLink>
+              </SocialLink> */}
             </SocialLinksContainer>
           </TextContent>
         </TextColumn>

@@ -26,6 +26,8 @@ app.use('/slot',slotRouter);
 const sessionRouter = require('./routes/Session');
 app.use('/session',sessionRouter);
 
+const sessionRouter = require('./routes/Event');
+app.use('/event',eventRouter);
 const contactRouter = require('./routes/Contact');
 app.use('/con',contactRouter);
 

@@ -47,9 +47,9 @@ export default () => {
           />
         </div>
         </AnimationRevealPage>
-        <div id="login">
+        {/* <div id="login">
           <LoginSignup />
-        </div>
+        </div> */}
         <div id="letstalk">
           <LetUsTalk />
         </div>

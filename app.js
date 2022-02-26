@@ -11,7 +11,7 @@ app.use(cors());
 // mongoose.connect('mongodb://localhost:27017/mernauth',{useNewUrlParser : true,useUnifiedTopology: true},()=>{
 //     console.log('successfully connected to database');
 // });
-const connection = "mongodb+srv://rijul_jain:ILv6cJGYecAlAJKa@cluster0.jggz4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const connection = "mongodb+srv://rivets:l6QkghzCYwSfx1Ny@cluster0.rqoeq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 mongoose.connect(connection,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
     .then(() => console.log("Database Connected Successfully"))
     .catch(err => console.log(err));

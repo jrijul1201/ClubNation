@@ -44,7 +44,8 @@ export default (props) => {
             We provide the basic personal financial advisory you need to embark
             on your financial freedom.
           </Subheading>
-          <PrimaryAction href={props.getstarted}>Get Started</PrimaryAction>
+          {/* <PrimaryAction href={props.getstarted}>Get Started</PrimaryAction> */}
+          <PrimaryAction href={props.getstarted}>Sign-In</PrimaryAction>
         </Content>
       </HeroContainer>
     </Container>

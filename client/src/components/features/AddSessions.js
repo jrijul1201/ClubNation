@@ -177,7 +177,7 @@ const AddSessions = ({
                         />
                           <Input
                             type="text"
-                            name="imglink"
+                            name="img"
                             value={session.img}
                             onChange={onChange}
                             placeholder="Poster Img Link"

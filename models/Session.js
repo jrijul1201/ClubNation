@@ -52,10 +52,10 @@ const SessionSchema = new mongoose.Schema({
         required: true,
         min: 1
     },
-    resources: [{
-        type: ResourceSchema,
-        required :true,
-    }]
+    // resources: [{
+    //     type: ResourceSchema,
+    //     required :true,
+    // }]
     // resources: [{ type: mongoose.Schema.Types.ObjectId, ref: "Resource" }],
 });
 

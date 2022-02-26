@@ -107,10 +107,9 @@ export default () => {
               <InstagramIcon />
             </SocialLink>
           </SocialLinksContainer>
-          {/* <CopyrightText>
-            Made with ❤️ by Team Rivets &copy; Copyright 2022, CapiBull Inc. All
-            Rights Reserved.
-          </CopyrightText> */}
+          <CopyrightText>
+            Made by the team of Rijul Jain, Prateeksha Pal and Harshit Krishna.
+          </CopyrightText>
         </Row>
       </Content>
     </Container>

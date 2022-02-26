@@ -3,7 +3,7 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Hero from "components/hero/FullWidthWithImage.js";
 import Features from "components/features/ThreeColSimple.js";
 import MainFeature from "components/features/TwoColSingleFeatureWithStats.js";
-import SliderCard from "components/cards/UserDetails.js";
+import SliderCard from "components/cards/SessionDetails.js";
 import TrendingCard from "components/cards/TwoTrendingPreviewCardsWithImage.js";
 import Blog from "components/blogs/PopularAndRecentBlogPosts.js";
 import Testimonial from "components/testimonials/TwoColumnWithImageAndProfilePictureReview.js";

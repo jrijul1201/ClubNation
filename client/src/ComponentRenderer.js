@@ -62,7 +62,7 @@ import WithStatsAndImageFeatures from "components/features/TwoColSingleFeatureWi
 import WithStatsAndImage2Features from "components/features/TwoColSingleFeatureWithStats2.js";
 import VerticalWithAlternateImageAndTextFeatures from "components/features/VerticalWithAlternateImageAndText.js";
 
-import SliderCards from "components/cards/UserDetails.js";
+import SliderCards from "components/cards/SessionDetails.js";
 import TrendingCards from "components/cards/TwoTrendingPreviewCardsWithImage.js";
 import PortfolioCards from "components/cards/PortfolioTwoCardsWithImage.js";
 import TabGridCards from "components/cards/TabCardGrid.js";

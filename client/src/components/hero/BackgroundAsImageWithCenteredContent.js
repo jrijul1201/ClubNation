@@ -8,13 +8,13 @@ import AnimationRevealPage from "../../helpers/AnimationRevealPage.js";
 import { Subheading as SubheadingBase } from "components/misc/Headings.js";
 
 const Container = styled.div`
-  ${tw`relative -m-8 bg-center bg-cover h-screen min-h-144`}
+  ${tw`relative -m-8 bg-center bg-cover py-2 -mt-16`}
   background-image: url("https://user-images.githubusercontent.com/79650423/148645553-b67f6585-83f2-4259-bf58-ff8f6223354b.jpeg");
 `;
 
 const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-black opacity-75`;
 
-const HeroContainer = tw.div`z-20 relative px-6 sm:px-8 mx-auto h-full flex flex-col`;
+const HeroContainer = tw.div`z-20 relative px-6 sm:px-8 mx-auto flex flex-col`;
 const Content = tw.div`px-4 flex flex-1 flex-col justify-center items-center`;
 
 const Heading = styled.h1`
@@ -35,11 +35,11 @@ export default (props) => {
       <OpacityOverlay />
       <HeroContainer>
         <Navbar />
-        <Content>
+        {/* <Content>
           <Heading>
             Seeking alpha returns?
             <br />
-          </Heading>
+          </Heading> */}
           {/* <Subheading>
             CapiBull is a one-stop pro-bono solution to all your hesitations
             relating to personal finance.
@@ -47,8 +47,8 @@ export default (props) => {
             We provide the basic personal financial advisory you need to embark
             on your financial freedom.
           </Subheading> */}
-          <PrimaryAction href={props.getstarted}>Get Started</PrimaryAction>
-        </Content>
+          {/* <PrimaryAction href={props.getstarted}>Get Started</PrimaryAction>
+        </Content> */}
       </HeroContainer>
     </Container>
   );

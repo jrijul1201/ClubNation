@@ -7,6 +7,7 @@ export default {
       });
     },
     postEvent: (event) => {
+      console.log("doing1");
       return fetch("/event/addevent", {
         method: "post",
         body: JSON.stringify(event),

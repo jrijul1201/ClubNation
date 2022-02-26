@@ -175,6 +175,13 @@ const AddEvents = ({
                         />
                         <Input
                             type="text"
+                            name="img"
+                            value={event.img}
+                            onChange={onChange}
+                            placeholder="Image Link"
+                        />
+                        <Input
+                            type="text"
                             name="date"
                             value={event.date}
                             onChange={onChange}

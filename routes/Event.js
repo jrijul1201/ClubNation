@@ -4,14 +4,16 @@ const eventRouter = express.Router();
 const Event = require("../models/Event");
 
 eventRouter.post("/addevent", (req, res) => {
-  const { title, img, date,time,reglink,description} = req.body;
+  console.log("doing2");
+  const { title, img, date, time, reglink, description } = req.body;
+  // const { title,  date,time,reglink,description} = req.body;
   const newEvent = new Event({
     title,
     img,
-     date,
-     time,
-     reglink,
-     description,
+    date,
+    time,
+    reglink,
+    description,
   });
   newEvent.save((err) => {
     if (err)

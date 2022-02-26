@@ -74,10 +74,9 @@ const Navbar = (props) => {
     return (
       <>
         <NavLink href="/">Home</NavLink>
-        <NavLink href="#userdetails">Events</NavLink>
-        <NavLink href="#addsessions">Add Sessions</NavLink>
+        <NavLink href="#sessions">Events</NavLink>
         <NavLink href="#sessions">Sessions</NavLink>
-        <NavLink href="#resources">Request/Idea Panel</NavLink>
+        <NavLink href="#letstalk">Request/Idea Panel</NavLink>
         {/* <NavLink href="#letstalk">Basic Stock Market Course</NavLink>*/}
         <NavLink href="#about">About</NavLink>
         {/* <NavLink href="/#/Todos">Todos</NavLink> */}
@@ -92,6 +91,7 @@ const Navbar = (props) => {
       <>
         <NavLink href="/">Home</NavLink>
         <NavLink href="#userdetails">Events</NavLink>
+        <NavLink href="#addsessions">Add Events</NavLink>
         <NavLink href="#userdetails">Sessions</NavLink>
         <NavLink href="#addsessions">Add Sessions</NavLink>
         <NavLink href="#userdetails">Team</NavLink>

@@ -24,8 +24,14 @@ import { AuthContext } from "../Context/AuthContext";
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
 
 export default () => {
-  const { isAuthenticated, user, setIsAuthenticated, setUser } =
-    useContext(AuthContext);
+  const {
+    user,
+    setUser,
+    isAuthenticated,
+    setIsAuthenticated,
+    isAdmin,
+    setIsAdmin,
+  } = useContext(AuthContext);
 
   const unauthenticatedLP = () => {
     return (
@@ -58,9 +64,9 @@ export default () => {
         <AnimationRevealPage>
           <Hero getstarted="#bookaslot" />
         </AnimationRevealPage>
-        <div id="bookaslot">
+        {/* <div id="bookaslot">
           <SlotBooking />
-        </div>
+        </div> */}
         <div id="resources">
           <Resources />
         </div>
@@ -92,19 +98,19 @@ export default () => {
         <div id="bookaslot">
           <AdminSlotBooking />
         </div>
-        <div>
+        {/* <div>
           <SlotsBooked />
-        </div>
+        </div> */}
         <div id="addsessions">
           <AddSessions />
         </div>
         <div id="addresources">
           <AddResources />
         </div>
-      
-        <div id="userdetails">
+
+        {/* <div id="userdetails">
           <UserDetails />
-        </div>
+        </div> */}
         <div id="changepwd">
           <ChangePwd />
         </div>
@@ -112,8 +118,6 @@ export default () => {
       </>
     );
   };
-  const isAdmin = user ? user.email === "pc@students.iitmandi.ac.in" : false;
-
   const page = () => {
     if (!isAuthenticated) return unauthenticatedLP();
     else {

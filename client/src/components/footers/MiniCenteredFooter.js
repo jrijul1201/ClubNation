@@ -31,8 +31,9 @@ const SocialLink = styled.a`
 
 const CopyrightText = tw.p`text-center mt-10 font-medium tracking-wide text-sm text-gray-600`;
 export default () => {
-  const { isAuthenticated, user, setIsAuthenticated, setUser } =
-    useContext(AuthContext);
+  const {user,setUser,isAuthenticated,setIsAuthenticated,isAdmin,setIsAdmin} =
+  useContext(AuthContext);
+
   const unauthenticatedFooter = () => {
     return (
       <>
@@ -65,7 +66,6 @@ export default () => {
       </>
     );
   };
-  const isAdmin = user ? user.email === "pc@students.iitmandi.ac.in" : false;
 
   const footerLinks = () => {
     if (!isAuthenticated) return unauthenticatedFooter();

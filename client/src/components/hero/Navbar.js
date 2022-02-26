@@ -36,10 +36,17 @@ const SocialLink = styled.a`
 `;
 
 const Navbar = (props) => {
-  const { isAuthenticated, user, setIsAuthenticated, setUser } =
-    useContext(AuthContext);
-    // console.log("navbar", user);
-    const onClickLogoutHandler = () => {
+  const {
+    user,
+    setUser,
+    isAuthenticated,
+    setIsAuthenticated,
+    isAdmin,
+    setIsAdmin,
+  } = useContext(AuthContext);
+
+  // console.log("navbar", user);
+  const onClickLogoutHandler = () => {
     AuthService.logout().then((data) => {
       if (data.success) {
         setUser(data.user);
@@ -68,7 +75,7 @@ const Navbar = (props) => {
         <NavLink href="#userdetails">Events</NavLink>
         <NavLink href="#userdetails">Sessions</NavLink>
         <NavLink href="#resources">Request/Idea Panel</NavLink>
-       {/* <NavLink href="#letstalk">Basic Stock Market Course</NavLink>*/}
+        {/* <NavLink href="#letstalk">Basic Stock Market Course</NavLink>*/}
         <NavLink href="#about">About</NavLink>
         {/* <NavLink href="/#/Todos">Todos</NavLink> */}
         <NavLink onClick={onClickLogoutHandler} href="#">
@@ -91,7 +98,7 @@ const Navbar = (props) => {
       </>
     );
   };
-  const isAdmin = user ? user.email === "pc@students.iitmandi.ac.in" : false;
+  // const isAdmin = user ? user.email === "pc@students.iitmandi.ac.in" : false;
 
   const navlinks = () => {
     if (!isAuthenticated) return unauthenticatedNavBar();

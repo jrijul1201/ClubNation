@@ -1,15 +1,15 @@
 export default {
-    getSessions: () => {
-      return fetch("/session/sessions").then((response) => {
+    getEvents: () => {
+      return fetch("/event/events").then((response) => {
         if (response.status !== 401) {
           return response.json().then((data) => data);
         } else return { message: { msgBody: "UnAuthorized", msgError: true } };
       });
     },
-    postSession: (session) => {
-      return fetch("/session/addsession", {
+    postEvent: (event) => {
+      return fetch("/event/addevent", {
         method: "post",
-        body: JSON.stringify(session),
+        body: JSON.stringify(event),
         headers: {
           "Content-Type": "application/json",
         },
@@ -19,10 +19,10 @@ export default {
         } else return { message: { msgBody: "UnAuthorized" }, msgError: true };
       });
     },
-    delSession: (session) => {
-      return fetch("/session/delsession", {
+    delEvent: (event) => {
+      return fetch("/event/delevent", {
         method: "post",
-        body: JSON.stringify(session),
+        body: JSON.stringify(event),
         headers: {
           "Content-Type": "application/json",
         },

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const SessionSchema = new mongoose.Schema({
+const EventSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,

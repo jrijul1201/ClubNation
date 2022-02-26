@@ -86,7 +86,7 @@ const Navbar = (props) => {
     return (
       <>
         <NavLink href="/">Home</NavLink>
-        <NavLink href="#sessions">Events</NavLink>
+        <NavLink href="#events">Events</NavLink>
         <NavLink href="#sessions">Sessions</NavLink>
         <NavLink href="#letstalk">Request/Idea Panel</NavLink>
         {/* <NavLink href="#letstalk">Basic Stock Market Course</NavLink>*/}

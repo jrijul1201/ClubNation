@@ -7,6 +7,7 @@ import Resources from "components/faqs/SingleCol.js";
 import AddResources from "components/features/AddResources.js";
 import AddSessions from "components/features/AddSessions.js";
 import SessionDetails from "components/cards/SessionDetails.js";
+import EventDetails from "components/cards/EventDetails.js";
 import SlotBooking from "components/faqs/ShowSlots.js";
 import AdminSlotBooking from "components/faqs/AdminShowSlots.js";
 import SlotsBooked from "components/cards/SlotsBooked.js";
@@ -73,6 +74,9 @@ export default () => {
     
         <div id="sessions">
         <SessionDetails />
+        </div>
+        <div id="events">
+        <EventDetails />
         </div>
         <div id="letstalk">
           <LetUsTalk />

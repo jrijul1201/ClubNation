@@ -10,7 +10,7 @@ import {
   Subheading as SubheadingBase,
 } from "components/misc/Headings.js";
 
-import SessionService from "../../Services/SessionService";
+import EventService from "../../Services/EventService";
 import { ReactComponent as PriceIcon } from "feather-icons/dist/icons/dollar-sign.svg";
 import { ReactComponent as LocationIcon } from "feather-icons/dist/icons/map-pin.svg";
 import { ReactComponent as StarIcon } from "feather-icons/dist/icons/star.svg";
@@ -143,11 +143,11 @@ export default () => {
       console.log(users);
     });
   }, []);
-  const [sessions, setSessions] = useState([]);
+  const [events, setEvents] = useState([]);
   useEffect(() => {
-    SessionService.getSessions().then((data) => {
-      setSessions(data.sessions.reverse());
-      console.log(sessions);
+   EventService.getEvents().then((data) => {
+      setEvents(data.events.reverse());
+      console.log(events);
     });
   }, []);
   const onSubmit = (e) => {
@@ -174,20 +174,20 @@ export default () => {
       <Content>
         <HeaderContent>
           <Subheading>ClubNation</Subheading>
-          <Heading>Session Details</Heading>
+          <Heading>Event Details</Heading>
         </HeaderContent>
         {searchBar()}
         <TabContent>
           <DecoratorBlob1 />
           <DecoratorBlob2 />
-           {sessions.map((session, index)=> {
-            if (session.title.match(query)) {
+           {events.map((event, index)=> {
+            if (event.title.match(query)) {
               return (
                 <Card key={index}>
              {/*   <CardImage imageSrc={session.imageSrc} />*/}
                 <TextInfo>
                   <TitleReviewContainer>
-                    <Title>{session.title}</Title>
+                    <Title>{event.title}</Title>
                     <RatingsInfo>
                       <StarIcon />
                  {/* <Rating>{session.rating}</Rating>*/}
@@ -198,13 +198,13 @@ export default () => {
                       <IconContainer>
                         <LocationIcon />
                       </IconContainer>
-                      <Text>{session.date}</Text>
+                      <Text>{event.date}</Text>
                     </IconWithText>
                     <IconWithText>
                       <IconContainer>
                         <PriceIcon />
                       </IconContainer>
-                      <Text>{session.time}</Text>
+                      <Text>{event.time}</Text>
                     </IconWithText>
                   </SecondaryInfoContainer>
                   <SecondaryInfoContainer>
@@ -212,16 +212,11 @@ export default () => {
                       <IconContainer>
                         <LocationIcon />
                       </IconContainer>
-                      <Text>{session.mlink}</Text>
+                      <Text>{event.reglink}</Text>
                     </IconWithText>
-                    <IconWithText>
-                      <IconContainer>
-                        <PriceIcon />
-                      </IconContainer>
-                      <Text>{session.rlink}</Text>
-                    </IconWithText>
+                 
                   </SecondaryInfoContainer>
-                  <Description>{session.description}</Description>
+                  <Description>{event.description}</Description>
                 </TextInfo>
                 <PrimaryButton>Book Now</PrimaryButton>
               </Card>

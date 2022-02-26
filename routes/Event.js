@@ -3,7 +3,7 @@ const eventRouter = express.Router();
 
 const Event = require("../models/Event");
 
-sessionRouter.post("/addevent", (req, res) => {
+eventRouter.post("/addevent", (req, res) => {
   const { title, date,time,reglink,description} = req.body;
   const newEvent = new Event({
     title,
@@ -49,7 +49,7 @@ eventRouter.get("/events", (req, res) => {
         message: { msgBody: "Events failed to fetch", msgError: true },
       });
     } else {
-      console.log("Sessions fetched successfully");
+      console.log("Events fetched successfully");
       res.status(200).json({ events: document });
     }
   });

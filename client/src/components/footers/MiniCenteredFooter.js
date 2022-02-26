@@ -48,21 +48,25 @@ export default () => {
   const authenticatedFooter = () => {
     return (
       <>
-        <Link href="/">Home</Link>
-        <Link href="#bookaslot">Book a Slot</Link>
-        <Link href="#resources">Resources</Link>
-        <Link href="#letstalk">Basic Stock Market Course</Link>
+       <Link href="/">Home</Link>
+        <Link href="#events">Events</Link>
+        <Link href="#sessions">Sessions</Link>
+        <Link href="#letstalk">Request/Idea Panel</Link>
         <Link href="#about">About</Link>
+     
       </>
     );
   };
   const adminFooter = () => {
     return (
       <>
-        <Link href="/">Home</Link>
-        <Link href="#bookaslot">Slot Booking</Link>
-        <Link href="#addresources">Add Resources</Link>
-        <Link href="#userdetails">User Details</Link>
+      <Link href="/">Home</Link>
+        <Link href="#userdetails">Events</Link>
+        <Link href="#addsessions">Add Events</Link>
+        <Link href="#userdetails">Sessions</Link>
+        <Link href="#addsessions">Add Sessions</Link>
+        <Link href="#userdetails">Team</Link>
+       
       </>
     );
   };
@@ -79,8 +83,7 @@ export default () => {
       <Content>
         <Row>
           <LogoContainer>
-            <a href="/">
-            <LogoImg src={logo} /></a>
+            <LogoImg src={logo} />
           </LogoContainer>
           <LinksContainer>{footerLinks()}</LinksContainer>
           <SocialLinksContainer>
@@ -101,7 +104,7 @@ export default () => {
               <DiscordIcon />
             </SocialLink> */}
             <SocialLink
-              href="https://instagram.com"
+              href="https://instagram.com/"
               target={"_blank"}
             >
               <InstagramIcon />

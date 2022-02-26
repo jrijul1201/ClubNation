@@ -334,7 +334,7 @@ const PrimaryButton = tw(
 
 export default () => {
   // useState is used instead of useRef below because we want to re-render when sliderRef becomes available (not null)
-  const [query, setQuery] = useState(null);
+  const [query, setQuery] = useState("");
   const onChange = (e) => {
     setQuery(e.target.value);
   };

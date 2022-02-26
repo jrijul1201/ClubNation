@@ -1,7 +1,7 @@
 const express = require("express");
 const sessionRouter = express.Router();
 
-const Session = require("../session");
+const Session = require("../models/Session");
 
 sessionRouter.post("/addsession", (req, res) => {
   const { title, img, date, time, mlink, description, rlink } = req.body;

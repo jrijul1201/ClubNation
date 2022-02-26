@@ -408,7 +408,7 @@ export default () => {
             if (session.title.match(query)) {
               return (
                 <Card key={index}>
-             {/*   <CardImage imageSrc={session.imageSrc} />*/}
+              <CardImage imageSrc={session.img} />
                 <TextInfo>
                   <TitleReviewContainer>
                     <Title>{session.title}</Title>

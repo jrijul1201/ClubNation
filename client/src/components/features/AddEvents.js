@@ -74,6 +74,7 @@ const AddEvents = ({
 }) => {
     const [event, setEvent] = useState({
         title: "",
+        img:"",
         date: "",
         time: "",
         mlink: "",
@@ -96,6 +97,7 @@ const AddEvents = ({
     const resetForm = () => {
         setEvent({
             title: "",
+            img:"",
             date: "",
             time: "",
             reglink: "",
@@ -158,7 +160,7 @@ const AddEvents = ({
                         <Heading>Add Events</Heading>
                         <p align="center">
                             <Description>
-                                Add title, date, time, Registration link, description</Description>
+                                Add title, poster, date, time, Registration link, description</Description>
                         </p>
                     </HeaderContent>
                     <br />
@@ -171,6 +173,13 @@ const AddEvents = ({
                             value={event.title}
                             onChange={onChange}
                             placeholder="Title"
+                        />
+                         <Input
+                            type="text"
+                            name="title"
+                            value={event.img}
+                            onChange={onChange}
+                            placeholder="Poster Link"
                         />
                         <Input
                             type="text"

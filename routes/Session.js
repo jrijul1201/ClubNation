@@ -7,6 +7,7 @@ sessionRouter.post("/addsession", (req, res) => {
   const { title, date,time,mlink,description,rlink} = req.body;
   const newSession = new Session({
     title,
+    img,
      date,
      time,
      mlink,

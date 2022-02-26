@@ -73,10 +73,11 @@ const Navbar = (props) => {
         <NavLink href="/">Home</NavLink>
         {/*NavLink href="#login">Book a Slot</NavLink>
         <NavLink href="#login">Resources</NavLink>
-    <NavLink href="#letstalk">Basic Stock Market Course</NavLink>*/}
+        <NavLink href="#letstalk">Basic Stock Market Course</NavLink>*/}
+        <NavLink href="#about">About</NavLink>
+        <NavLink href="#letstalk">Contact Us</NavLink>
         {/* <NavLink href="#userdetails">Events</NavLink>
         <NavLink href="#userdetails">Sessions</NavLink> */}
-        <NavLink href="#about">About</NavLink>
         {/* <NavLink href="#login">Login</NavLink> */}
       </>
     );
@@ -166,18 +167,18 @@ const Navbar = (props) => {
         </SocialLink>
       </SocialLinksContainer> */}
       {isAuthenticated ? (
-        <PrimaryLink onClick={onClickLogoutHandler} href="/#">
+        <button><PrimaryLink onClick={onClickLogoutHandler} href="/#">
           Logout
-        </PrimaryLink>
+        </PrimaryLink></button>
       ) : (
         <GoogleLogin
           render={(renderProps) => (
-            <PrimaryLink
+            <button><PrimaryLink
               onClick={renderProps.onClick}
               disabled={renderProps.disabled}
             >
               Login
-            </PrimaryLink>
+            </PrimaryLink></button>
           )}
           clientId="373151948151-7ucdilvhgce7u17fv2s1vs67bbvjesh3.apps.googleusercontent.com"
           buttonText="Log in with Google"

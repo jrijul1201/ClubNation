@@ -38,10 +38,10 @@ export default () => {
     return (
       <>
         <Link href="/">Home</Link>
-        <Link href="#login">Login</Link>
-        {/* <Link href="#login">Resources</Link>
-        <Link href="#letstalk">Basic Stock Market Course</Link> */}
+        {/* <Link href="#login">Login</Link> */}
+        {/* <Link href="#login">Resources</Link> */}
         <Link href="#about">About</Link>
+        <Link href="#letstalk">Contact Us</Link>
       </>
     );
   };
@@ -82,30 +82,30 @@ export default () => {
             <LogoImg src={logo} />
           </LogoContainer>
           <LinksContainer>{footerLinks()}</LinksContainer>
-          {/* <SocialLinksContainer> */}
-            {/* <SocialLink href="https://facebook.com" target={"_blank"}>
+          <SocialLinksContainer>
+            <SocialLink href="https://facebook.com" target={"_blank"}>
               <FacebookIcon />
             </SocialLink>
             <SocialLink href="https://twitter.com" target={"_blank"}>
               <TwitterIcon />
-            </SocialLink> */}
+            </SocialLink>
             {/* <SocialLink href="https://www.youtube.com/channel/UCSmPXl_J3u9AmRUyveXptPw/featured" target={"_blank"}>
             <SocialLink
               href="https://www.youtube.com/channel/UCSmPXl_J3u9AmRUyveXptPw/featured"
               target={"_blank"}
             >
               <YoutubeIcon />
-            </SocialLink>
-            <SocialLink href="https://discord.gg/F6r2DYd6Z6" target={"_blank"}>
+            </SocialLink> */}
+            {/* <SocialLink href="https://discord.gg/F6r2DYd6Z6" target={"_blank"}>
               <DiscordIcon />
-            </SocialLink>
+            </SocialLink> */}
             <SocialLink
               href="https://instagram.com/capibulladvisors?utm_medium=copy_link"
               target={"_blank"}
             >
               <InstagramIcon />
-            </SocialLink> */}
-          {/* </SocialLinksContainer> */}
+            </SocialLink>
+          </SocialLinksContainer>
           {/* <CopyrightText>
             Made with ❤️ by Team Rivets &copy; Copyright 2022, CapiBull Inc. All
             Rights Reserved.

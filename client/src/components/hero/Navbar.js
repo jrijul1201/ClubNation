@@ -52,9 +52,9 @@ const Navbar = (props) => {
     return (
       <>
         <NavLink href="/">Home</NavLink>
-        <NavLink href="#login">Book a Slot</NavLink>
+        {/*NavLink href="#login">Book a Slot</NavLink>
         <NavLink href="#login">Resources</NavLink>
-        <NavLink href="#letstalk">Basic Stock Market Course</NavLink>
+    <NavLink href="#letstalk">Basic Stock Market Course</NavLink>*/}
         <NavLink href="#about">About</NavLink>
         <NavLink href="#login">Login</NavLink>
       </>
@@ -65,9 +65,10 @@ const Navbar = (props) => {
     return (
       <>
         <NavLink href="/">Home</NavLink>
-        <NavLink href="#bookaslot">Book a Slot</NavLink>
-        <NavLink href="#resources">Resources</NavLink>
-        <NavLink href="#letstalk">Basic Stock Market Course</NavLink>
+        <NavLink href="#userdetails">Events</NavLink>
+        <NavLink href="#userdetails">Sessions</NavLink>
+        <NavLink href="#resources">Request/Idea Panel</NavLink>
+       {/* <NavLink href="#letstalk">Basic Stock Market Course</NavLink>*/}
         <NavLink href="#about">About</NavLink>
         {/* <NavLink href="/#/Todos">Todos</NavLink> */}
         <NavLink onClick={onClickLogoutHandler} href="#">
@@ -80,9 +81,10 @@ const Navbar = (props) => {
     return (
       <>
         <NavLink href="/">Home</NavLink>
-        <NavLink href="#bookaslot">Slot Booking</NavLink>
-        <NavLink href="#addresources">Add Resources</NavLink>
-        <NavLink href="#userdetails">User Details</NavLink>
+        <NavLink href="#userdetails">Events</NavLink>
+        <NavLink href="#userdetails">Sessions</NavLink>
+        <NavLink href="#addsessions">Add Sessions</NavLink>
+        <NavLink href="#userdetails">Team</NavLink>
         <NavLink onClick={onClickLogoutHandler} href="#">
           Logout
         </NavLink>

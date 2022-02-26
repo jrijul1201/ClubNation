@@ -5,6 +5,7 @@ import HeroAdmin from "components/hero/NoOfUsers.js";
 import LetUsTalk from "components/LetsTalk";
 import Resources from "components/faqs/SingleCol.js";
 import AddResources from "components/features/AddResources.js";
+import AddSessions from "components/features/AddSessions.js";
 import UserDetails from "components/cards/UserDetails.js";
 import SlotBooking from "components/faqs/ShowSlots.js";
 import AdminSlotBooking from "components/faqs/AdminShowSlots.js";
@@ -94,9 +95,13 @@ export default () => {
         <div>
           <SlotsBooked />
         </div>
+        <div id="addsessions">
+          <AddSessions />
+        </div>
         <div id="addresources">
           <AddResources />
         </div>
+      
         <div id="userdetails">
           <UserDetails />
         </div>

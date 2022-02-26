@@ -1,19 +1,20 @@
 const express = require("express");
 const sessionRouter = express.Router();
 
-const Session = require("../models/Session");
+const Session = require("../session");
 
 sessionRouter.post("/addsession", (req, res) => {
-  const { title, img,date,time,mlink,description,rlink} = req.body;
+  const { title, img, date, time, mlink, description, rlink } = req.body;
   const newSession = new Session({
     title,
     img,
-     date,
-     time,
-     mlink,
-     description,
-     rlink
+    date,
+    time,
+    mlink,
+    description,
+    rlink,
   });
+  console.log("doing2");
   newSession.save((err) => {
     if (err)
       res.status(500).json({

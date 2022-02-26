@@ -16,6 +16,8 @@ import Message from "../components/Message";
 import { AuthContext } from "../Context/AuthContext";
 import firebase from "./firebase";
 import { SplitButton } from "react-bootstrap";
+import { GoogleLogin } from "react-google-login";
+
 import ReactDOM from 'react-dom';
 const Container = tw(
   ContainerBase
@@ -271,11 +273,32 @@ const Login = (props) => {
       </SubmitButton>
     </>,
   ];
+  const handleFailure = (result) => {
+    alert(result);
+  };
+  const handleLogin = (result) => {
+    AuthService.login({token:result.tokenId}).then((data) => {
+      console.log(data);
+      const { isAuthenticated, user, message } = data;
+      if (isAuthenticated) {
+        authContext.setUser(user);
+        authContext.setIsAuthenticated(isAuthenticated);
+        //props.history.push('/todos');
+      } else { ReactDOM.render(<h1>Please enter valid credentials.</h1>, document.getElementById('pswdE')); setMessage(message); }
+    });
+  };
   return (
     // <AnimationRevealPage>
     <Container>
       <Content>
         <MainContainer>
+        <GoogleLogin
+                clientId="373151948151-7ucdilvhgce7u17fv2s1vs67bbvjesh3.apps.googleusercontent.com"
+                buttonText="Log in with Google"
+                onSuccess={handleLogin}
+                onFailure={handleFailure}
+                cookiePolicy={"single_host_origin"}
+              />
           <LogoLink href="#">
             <LogoImage src={logo} />
           </LogoLink>

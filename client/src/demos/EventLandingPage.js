@@ -23,26 +23,22 @@ import { AuthContext } from "../Context/AuthContext";
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
 
 export default () => {
-  const {
-    isAuthenticated,
-    user,
-    setIsAuthenticated,
-    setUser
-  } = useContext(AuthContext);
-  const isAdmin = (user.username === "admin");
+  const { isAuthenticated, user, setIsAuthenticated, setUser } =
+    useContext(AuthContext);
+
   const unauthenticatedLP = () => {
     return (
       <>
         <AnimationRevealPage>
           <Hero getstarted="#login" />
-        <div id="about">
-          <MainFeature1
-            subheading={<Subheading>About</Subheading>}
-            heading="We aim to get you started on your Investment Journey."
-            buttonRounded={false}
-            imageSrc="https://user-images.githubusercontent.com/83131033/149828025-baeec356-9307-4f05-8dcc-fa5de8f8db8d.png"
-          />
-        </div>
+          <div id="about">
+            <MainFeature1
+              subheading={<Subheading>About</Subheading>}
+              heading="We aim to get you started on your Investment Journey."
+              buttonRounded={false}
+              imageSrc="https://user-images.githubusercontent.com/83131033/149828025-baeec356-9307-4f05-8dcc-fa5de8f8db8d.png"
+            />
+          </div>
         </AnimationRevealPage>
         <div id="login">
           <LoginSignup />
@@ -96,7 +92,7 @@ export default () => {
           <AdminSlotBooking />
         </div>
         <div>
-        <SlotsBooked/>
+          <SlotsBooked />
         </div>
         <div id="addresources">
           <AddResources />
@@ -111,6 +107,8 @@ export default () => {
       </>
     );
   };
+  const isAdmin = user ? user.email === "pc@students.iitmandi.ac.in" : false;
+
   const page = () => {
     if (!isAuthenticated) return unauthenticatedLP();
     else {

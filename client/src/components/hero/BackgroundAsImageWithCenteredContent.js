@@ -6,7 +6,6 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import Navbar from "./Navbar";
 import AnimationRevealPage from "../../helpers/AnimationRevealPage.js";
 import { Subheading as SubheadingBase } from "components/misc/Headings.js";
-import { GoogleLogin } from "react-google-login";
 
 const Container = styled.div`
   ${tw`relative -m-8 bg-center bg-cover h-screen min-h-144`}
@@ -31,35 +30,6 @@ const Subheading = tw(
 const PrimaryAction = tw.a`rounded-full px-8 py-3 mt-5 text-sm sm:text-base sm:mt-16 sm:px-8 sm:py-4 bg-gray-100 font-bold shadow transition duration-300 bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 focus:outline-none focus:shadow-outline`;
 
 export default (props) => {
-  const [loginData, setLoginData] = useState(
-    localStorage.getItem("loginData")
-      ? JSON.parse(localStorage.getItem("loginData"))
-      : null
-  );
-
-  const handleFailure = (result) => {
-    alert(result);
-  };
-
-  const handleLogin = async (googleData) => {
-    const res = await fetch("/api/google-login", {
-      method: "POST",
-      body: JSON.stringify({
-        token: googleData.tokenId,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const data = await res.json();
-    setLoginData(data);
-    localStorage.setItem("loginData", JSON.stringify(data));
-  };
-  const handleLogout = () => {
-    localStorage.removeItem("loginData");
-    setLoginData(null);
-  };
   return (
     <Container>
       <OpacityOverlay />
@@ -77,24 +47,7 @@ export default (props) => {
             We provide the basic personal financial advisory you need to embark
             on your financial freedom.
           </Subheading>
-          {/* <PrimaryAction href={props.getstarted}>Get Started</PrimaryAction> */}
-          <PrimaryAction href={props.getstarted}>Sign-In</PrimaryAction>
-          <div>
-            {loginData ? (
-              <div>
-                <h3>You logged in as {loginData.email}</h3>
-                <button onClick={handleLogout}>Logout</button>
-              </div>
-            ) : (
-              <GoogleLogin
-                clientId="373151948151-7ucdilvhgce7u17fv2s1vs67bbvjesh3.apps.googleusercontent.com"
-                buttonText="Log in with Google"
-                onSuccess={handleLogin}
-                onFailure={handleFailure}
-                cookiePolicy={"single_host_origin"}
-              />
-            )}
-          </div>
+          <PrimaryAction href={props.getstarted}>Get Started</PrimaryAction>
         </Content>
       </HeroContainer>
     </Container>

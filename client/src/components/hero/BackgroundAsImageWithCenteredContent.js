@@ -40,13 +40,13 @@ export default (props) => {
             Seeking alpha returns?
             <br />
           </Heading>
-          <Subheading>
+          {/* <Subheading>
             CapiBull is a one-stop pro-bono solution to all your hesitations
             relating to personal finance.
             <br />
             We provide the basic personal financial advisory you need to embark
             on your financial freedom.
-          </Subheading>
+          </Subheading> */}
           <PrimaryAction href={props.getstarted}>Get Started</PrimaryAction>
         </Content>
       </HeroContainer>

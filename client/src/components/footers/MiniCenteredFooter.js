@@ -83,8 +83,7 @@ export default () => {
       <Content>
         <Row>
           <LogoContainer>
-            <a href="/">
-            <LogoImg src={logo} /></a>
+            <LogoImg src={logo} />
           </LogoContainer>
           <LinksContainer>{footerLinks()}</LinksContainer>
           <SocialLinksContainer>
@@ -105,16 +104,15 @@ export default () => {
               <DiscordIcon />
             </SocialLink> */}
             <SocialLink
-              href="https://instagram.com"
+              href="https://instagram.com/"
               target={"_blank"}
             >
               <InstagramIcon />
             </SocialLink>
           </SocialLinksContainer>
-          {/* <CopyrightText>
-            Made with ❤️ by Team Rivets &copy; Copyright 2022, CapiBull Inc. All
-            Rights Reserved.
-          </CopyrightText> */}
+          <CopyrightText>
+            Made by the team of Rijul Jain, Prateeksha Pal and Harshit Krishna.
+          </CopyrightText>
         </Row>
       </Content>
     </Container>

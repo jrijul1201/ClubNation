@@ -61,8 +61,9 @@ export default () => {
         <div id="bookaslot">
           <SlotBooking />
         </div>
-        <div id="resources">
-          <Resources />
+    
+        <div id="sessions">
+        <UserDetails />
         </div>
         <div id="letstalk">
           <LetUsTalk />

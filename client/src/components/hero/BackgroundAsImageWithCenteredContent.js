@@ -9,7 +9,7 @@ import { Subheading as SubheadingBase } from "components/misc/Headings.js";
 
 const Container = styled.div`
   ${tw`relative -m-8 bg-center bg-cover py-2 -mt-16`}
-  background-image: url("https://user-images.githubusercontent.com/79650423/148645553-b67f6585-83f2-4259-bf58-ff8f6223354b.jpeg");
+  background-image: url("https://user-images.githubusercontent.com/83131033/155858036-2411c176-6357-46c8-87e8-9d283f150ae0.png");
 `;
 
 const OpacityOverlay = tw.div`z-10 absolute inset-0 bg-black opacity-75`;

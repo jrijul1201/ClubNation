@@ -26,7 +26,7 @@ const SessionSchema = new mongoose.Schema({
         min: 1
     },
    
-   resources: [{ type: mongoose.Schema.Types.ObjectId, ref: "Event" }],
+   Eresources: [{ type: mongoose.Schema.Types.ObjectId, ref: "Event" }],
 });
 
 module.exports = mongoose.model('Event', EventSchema);

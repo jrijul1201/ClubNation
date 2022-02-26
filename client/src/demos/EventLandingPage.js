@@ -81,7 +81,7 @@ export default () => {
         <div id="letstalk">
           <LetUsTalk />
         </div>
-        <div id="about">
+      {/*   <div id="about">
           <MainFeature1
             subheading={<Subheading>About</Subheading>}
             heading="We aim to get you started on your Investment Journey."
@@ -89,7 +89,7 @@ export default () => {
             primaryButtonText="Contact Us"
             // imageSrc="https://user-images.githubusercontent.com/83131033/149828025-baeec356-9307-4f05-8dcc-fa5de8f8db8d.png"
             />
-        </div>
+        </div> */}
         </AnimationRevealPage>
        {/* <div id="changepwd">
           <ChangePwd />

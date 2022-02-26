@@ -4,7 +4,7 @@ const eventRouter = express.Router();
 const Event = require("../models/Event");
 
 eventRouter.post("/addevent", (req, res) => {
-  const { title, date,time,reglink,description} = req.body;
+  const { title, img, date,time,reglink,description} = req.body;
   const newEvent = new Event({
     title,
     img,

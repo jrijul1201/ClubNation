@@ -74,11 +74,11 @@ const AddEvents = ({
 }) => {
     const [event, setEvent] = useState({
         title: "",
+        img:"",
         date: "",
         time: "",
-        mlink: "",
+        reglink: "",
         description: "",
-        rlink: ""
     });
     const [message, setMessage] = useState(null);
     let timerID = useRef(null);
@@ -96,6 +96,7 @@ const AddEvents = ({
     const resetForm = () => {
         setEvent({
             title: "",
+        img: "",
             date: "",
             time: "",
             reglink: "",

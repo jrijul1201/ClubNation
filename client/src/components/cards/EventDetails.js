@@ -218,7 +218,9 @@ export default () => {
                   </SecondaryInfoContainer>
                   <Description>{event.description}</Description>
                 </TextInfo>
-                <PrimaryButton>Book Now</PrimaryButton>
+                <PrimaryButton><PrimaryLink onClick={onClickLogoutHandler} href="/#">
+          Logout
+        </PrimaryLink></PrimaryButton>
               </Card>
               );
             } else {

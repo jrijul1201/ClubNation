@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Hero from "components/hero/BackgroundAsImageWithCenteredContent.js";
-import HeroAdmin from "components/hero/NoOfUsers.js";
+// import HeroAdmin from "components/hero/NoOfUsers.js";
 import LetUsTalk from "components/LetsTalk";
 import Resources from "components/faqs/SingleCol.js";
 import AddResources from "components/features/AddResources.js";
@@ -103,7 +103,7 @@ export default () => {
     return (
       <>
         <AnimationRevealPage>
-          <HeroAdmin getstarted="#bookaslot" />
+          <Hero getstarted="#bookaslot" />
         <div id="bookaslot">
           <AdminSlotBooking />
         </div>
@@ -134,15 +134,15 @@ export default () => {
           <ChangePwd />
           </div>
           */}
-        <Footer />
         </AnimationRevealPage>
+        <Footer />
       </>
     );
   };
   const page = () => {
     if (!isAuthenticated) return unauthenticatedLP();
     else {
-      if (!isAdmin) return adminLP();
+      if (isAdmin) return adminLP();
       else return authenticatedLP();
     }
   };

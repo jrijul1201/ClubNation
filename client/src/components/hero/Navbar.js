@@ -119,7 +119,7 @@ const Navbar = (props) => {
   const navlinks = () => {
     if (!isAuthenticated) return unauthenticatedNavBar();
     else {
-      if (!isAdmin) return adminNavBar();
+      if (isAdmin) return adminNavBar();
       else return authenticatedNavBar();
     }
   };

@@ -5,8 +5,8 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import { motion } from "framer-motion";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import {
-    SectionHeading,
-    Subheading as SubheadingBase,
+  SectionHeading,
+  Subheading as SubheadingBase,
 } from "components/misc/Headings.js";
 import { SectionDescription } from "components/misc/Typography.js";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
@@ -42,7 +42,7 @@ const SubmitButton = styled.button`
 `;
 
 const NewPrimaryButton = tw(
-    PrimaryButtonBase
+  PrimaryButtonBase
 )`bg-transparent hover:bg-red-600 text-red-600 font-semibold hover:text-white py-1 px-3 border-2 border-red-600 hover:border-transparent rounded`;
 
 const FAQSContainer = tw.dl`mt-12 max-w-4xl w-full relative`;
@@ -65,159 +65,171 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
 `;
 
 const EventEdit = ({
-    subheading = "Event Management",
-    heading = "Description and Resources",
-    description = "Here are some resources and tools which will help you to manage and understand your finances easily.",
+  subheading = "Event Management",
+  heading = "Description and Resources",
+  description = "Here are some resources and tools which will help you to manage and understand your finances easily.",
 
-    primaryButtonText = "Learn More",
-    primaryButtonUrl = "https://timerse.com",
+  primaryButtonText = "Learn More",
+  primaryButtonUrl = "https://timerse.com",
+  SEID = "",
+  eventOld={}
 }) => {
-    const [event, setEvent] = useState({
-        title: "",
-        img:"",
-        date: "",
-        time: "",
-        reglink: "",
-        description: "",
+  const [event, setEvent] = useState({
+    title: "",
+    img: "",
+    date: "",
+    time: "",
+    reglink: "",
+    description: "",
+  });
+  const [message, setMessage] = useState(eventOld);
+  let timerID = useRef(eventOld);
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(timerID);
+    };
+  }, []);
+
+  const onChange = (e) => {
+    setEvent({ ...event, [e.target.name]: e.target.value });
+  };
+
+  const resetForm = () => {
+    setEvent({
+      title: "",
+      img: "",
+      date: "",
+      time: "",
+      reglink: "",
+      description: "",
     });
-    const [message, setMessage] = useState(null);
-    let timerID = useRef(null);
+  };
 
-    useEffect(() => {
-        return () => {
-            clearTimeout(timerID);
-        };
-    }, []);
-
-    const onChange = (e) => {
-        setEvent({ ...event, [e.target.name]: e.target.value });
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const tmpEvents = [...events, event];
+    console.log(event);
+    const newEvent = {
+      title: event.title === "" ? eventOld.title : event.title,
+      img: event.img === "" ? eventOld.img : event.img,
+      date: event.date === "" ? eventOld.date : event.date,
+      time: event.time === "" ? eventOld.time : event.time,
+      reglink: event.reglink === "" ? eventOld.reglink : event.reglink,
+      description: event.description === "" ? eventOld.description : event.description,
     };
 
-    const resetForm = () => {
-        setEvent({
-            title: "",
-        img: "",
-            date: "",
-            time: "",
-            reglink: "",
-            description: "",
-        });
-    };
+    EventService.editEvent(newEvent, SEID).then((data) => {
+      const { message } = data;
+      setMessage(message);
+      resetForm();
+      if (!message.msgError) {
+        timerID = setTimeout(() => {
+          //   props.history.push("/#/add");
+        }, 2000);
+      }
+    });
+    setEvent(tmpEvents);
+  };
+  // const inputRef = useRef();
+  // useEffect(() => {
+  //     EventService.getEvents().then((data) => {
+  //         setEvent(data.events);
+  //         console.log(event);
+  //     });
+  // }, [inputRef]);
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-        const tmpEvents = [...events, event];
-        EventService.editEvent(event).then((data) => {
-            const { message } = data;
-            setMessage(message);
-            resetForm();
-            if (!message.msgError) {
-                timerID = setTimeout(() => {
-                    //   props.history.push("/#/add");
-                }, 2000);
-            }
-        });
-        setEvent(tmpEvents);
-    };
-    const inputRef = useRef();
-    useEffect(() => {
-        EventService.getEvents().then((data) => {
-            setEvent(data.events);
-            console.log(event);
-        });
-    }, [inputRef]);
-
-    function removeItemOnce(arr, value) {
-        var index = arr.indexOf(value);
-        if (index > -1) {
-            arr.splice(index, 1);
-        }
-        return arr;
+  function removeItemOnce(arr, value) {
+    var index = arr.indexOf(value);
+    if (index > -1) {
+      arr.splice(index, 1);
     }
-    const deleteEvent = (event) => {
-        const tmpEvents = [...events];
-        EventService.delEvent(event).then((data) => {
-            const { message } = data;
-            setMessage(message);
-        });
-        setEvent(removeItemOnce(tmpEvents, event));
-    };
-    const [activeQuestionIndex, setActiveQuestionIndex] = useState(null);
+    return arr;
+  }
+  const deleteEvent = (event) => {
+    const tmpEvents = [...events];
+    EventService.delEvent(event).then((data) => {
+      const { message } = data;
+      setMessage(message);
+    });
+    setEvent(removeItemOnce(tmpEvents, event));
+  };
+  const [activeQuestionIndex, setActiveQuestionIndex] = useState(eventOld);
 
-    const toggleQuestion = (questionIndex) => {
-        if (activeQuestionIndex === questionIndex) setActiveQuestionIndex(null);
-        else setActiveQuestionIndex(questionIndex);
-    };
-    const [events, setEvents] = useState([]);
-    return (
-        // <AnimationRevealPage>
-        <Container tw="m-8">
-            <ContentWithPaddingXl>
-                <Column>
-                    <HeaderContent>
-                        <Subheading>ClubNation</Subheading>
-                        <Heading>Update Event</Heading>
-                        <p align="center">
-                            <Description>
-                                Update title, date, time, Registration link, description</Description>
-                        </p>
-                    </HeaderContent>
-                    <br />
-                    <br />
-                    <br />
-                    <Form onSubmit={onSubmit}>
-                        <Input
-                            type="text"
-                            name="title"
-                            value={event.title}
-                            onChange={onChange}
-                            placeholder="Title"
-                        />
-                        <Input
-                            type="url"
-                            name="img"
-                            value={event.img}
-                            onChange={onChange}
-                            placeholder="Image Link"
-                        />
-                        <Input
-                            type="text"
-                            name="date"
-                            value={event.date}
-                            onChange={onChange}
-                            placeholder="Date"
-                        />  <Input
-                            type="text"
-                            name="time"
-                            value={event.time}
-                            onChange={onChange}
-                            placeholder="Time"
-                        />  <Input
-                            type="url"
-                            name="reglink"
-                            value={event.reglink}
-                            onChange={onChange}
-                            placeholder="Registration link"
-                        />
-                        <Input
-                            type="text"
-                            name="description"
-                            value={event.description}
-                            onChange={onChange}
-                            placeholder="Description"
-                        />
-                       
+  const toggleQuestion = (questionIndex) => {
+    if (activeQuestionIndex === questionIndex) setActiveQuestionIndex(eventOld);
+    else setActiveQuestionIndex(questionIndex);
+  };
+  const [events, setEvents] = useState([]);
+  return (
+    // <AnimationRevealPage>
+    <Container tw="m-8">
+      <ContentWithPaddingXl>
+        <Column>
+          <HeaderContent>
+            <Subheading>ClubNation</Subheading>
+            <Heading>Update Event</Heading>
+            <p align="center">
+              <Description>
+                Update title, date, time, registration link, description
+              </Description>
+            </p>
+          </HeaderContent>
+          <br />
+          <br />
+          <br />
+          <Form onSubmit={onSubmit}>
+            <Input
+              type="text"
+              name="title"
+              value={event.title}
+              onChange={onChange}
+              placeholder="Title"
+            />
+            <Input
+              type="url"
+              name="img"
+              value={event.img}
+              onChange={onChange}
+              placeholder="Image Link"
+            />
+            <Input
+              type="text"
+              name="date"
+              value={event.date}
+              onChange={onChange}
+              placeholder="Date"
+            />{" "}
+            <Input
+              type="text"
+              name="time"
+              value={event.time}
+              onChange={onChange}
+              placeholder="Time"
+            />{" "}
+            <Input
+              type="url"
+              name="reglink"
+              value={event.reglink}
+              onChange={onChange}
+              placeholder="Registration link"
+            />
+            <Input
+              type="text"
+              name="description"
+              value={event.description}
+              onChange={onChange}
+              placeholder="Description"
+            />
+            <p align="right">
+              <SubmitButton type="submit">
+                <SignUpIcon className="icon" />
+                <span className="text">Update</span>
+              </SubmitButton>
+            </p>
+          </Form>
 
-
-                        <p align="right">
-                            <SubmitButton type="submit">
-                                <SignUpIcon className="icon" />
-                                <span className="text">Update</span>
-                            </SubmitButton>
-                        </p>
-                    </Form>
-
-                    {/* <FAQSContainer>
+          {/* <FAQSContainer>
                         {events.map((event, index) => (
                             <FAQ>
                                 <Question
@@ -283,13 +295,13 @@ const EventEdit = ({
                             </FAQ>
                         ))}
                     </FAQSContainer> */}
-                </Column>
-            </ContentWithPaddingXl>
-            <DecoratorBlob1 />
-            <DecoratorBlob2 />
-        </Container>
-        // </AnimationRevealPage>
-    );
+        </Column>
+      </ContentWithPaddingXl>
+      <DecoratorBlob1 />
+      <DecoratorBlob2 />
+    </Container>
+    // </AnimationRevealPage>
+  );
 };
 
 export default EventEdit;

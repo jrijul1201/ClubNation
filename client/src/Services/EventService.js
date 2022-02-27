@@ -33,10 +33,11 @@ export default {
         } else return { message: { msgBody: "UnAuthorized" }, msgError: true };
       });
     },
-    editEvent: (event) => {
+    editEvent: (event, SEID) => {
+      console.log("helo")
       return fetch("/event/editevent", {
         method: "post",
-        body: JSON.stringify(event),
+        body: JSON.stringify({SEID: SEID, event: event}),
         headers: {
           "Content-Type": "application/json",
         },

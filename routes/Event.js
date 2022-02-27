@@ -43,7 +43,8 @@ eventRouter.post("/delevent", (req, res) => {
   });
 });
 eventRouter.post("/editevent", (req, res) => {
-  Event.findByIdAndUpdate(req.body._id, (err) => {
+  console.log(req.body.event)
+  Event.findByIdAndUpdate(req.body.SEID, req.body.event, (err) => {
     if (err) {
       console.log("Events failed to update");
       res.status(500).json({

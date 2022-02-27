@@ -66,7 +66,7 @@ export default (props) => {
             <AddResources SEID={eventID} />
           </div>
           <div id="editevent">
-            <EventEdit event={event} />
+            <EventEdit eventOld={event} SEID={eventID} />
           </div>
         </AnimationRevealPage>
         <Footer />

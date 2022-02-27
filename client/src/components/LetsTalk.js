@@ -46,11 +46,11 @@ export default ({
   subheading = "Contact Us",
   heading = (
     <>
-      <span tw="text-primary-500">Get in touch</span>
-      <wbr /> with us.
+      <span tw="text-primary-500">Have any</span>
+      <wbr /> suggestions / feedback / ideas?
     </>
   ),
-  description = "Get a call from us.",
+  description = "Send a mail directly to the club",
   submitButtonText = "Send",
   formAction = "#",
   formMethod = "get",
@@ -130,6 +130,7 @@ export default ({
       setStatus("Submit");
       let result = await response.json();
       alert(result.status);
+      e.target.elements.email = "";
     }
   };
 

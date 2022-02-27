@@ -14,8 +14,8 @@ export default ({ children })=>{
             setUser(data.user);
             setIsAuthenticated(data.isAuthenticated);
             setIsLoaded(true);
-     setIsAdmin(true)
-          //  setIsAdmin(data.user.email === "pc@students.iitmandi.ac.in")
+    //  setIsAdmin(true)
+           setIsAdmin(data.user.email === "pc@students.iitmandi.ac.in")
 
         });
     }, []);    

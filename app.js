@@ -9,7 +9,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(cors());
 
-const connection = process.env.MONGODB;
+const connection = "mongodb+srv://rivets:l6QkghzCYwSfx1Ny@cluster0.rqoeq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 mongoose.connect(connection,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
     .then(() => console.log("Database Connected Successfully"))
     .catch(err => console.log(err));

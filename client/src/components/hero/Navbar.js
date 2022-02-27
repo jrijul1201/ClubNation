@@ -186,7 +186,7 @@ const Navbar = (props) => {
               </PrimaryLink>
             </button>
           )}
-          clientId={process.env.GCLIENT_ID}
+          clientId="373151948151-7ucdilvhgce7u17fv2s1vs67bbvjesh3.apps.googleusercontent.com"
           buttonText="Log in with Google"
           onSuccess={handleLogin}
           onFailure={handleFailure}

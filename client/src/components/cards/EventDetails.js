@@ -186,7 +186,7 @@ export default () => {
       <Content>
         <HeaderContent>
           <Subheading>ClubNation</Subheading>
-          <Heading>Event Details</Heading>
+          <Heading>Events</Heading>
         </HeaderContent>
         {searchBar()}
         <TabContent>

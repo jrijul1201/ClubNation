@@ -15,7 +15,7 @@ const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-
 const Column = tw.div`w-full max-w-md mx-auto md:max-w-none md:mx-0`;
 const ImageColumn = tw(Column)`md:w-5/12 flex-shrink-0 h-80 md:h-auto relative`;
 const TextColumn = styled(Column)((props) => [
-  tw`md:w-7/12 mt-10 md:mt-0`,
+  tw`md:w-7/12 mt-5 md:mt-0`,
   props.textOnLeft
     ? tw`md:mr-12 lg:mr-16 md:order-first`
     : tw`md:ml-12 lg:ml-16 md:order-last`,
@@ -23,14 +23,14 @@ const TextColumn = styled(Column)((props) => [
 
 const Image = styled.div((props) => [
   `background-image: url("${props.imageSrc}");`,
-  tw`rounded bg-contain bg-no-repeat bg-center h-full`,
+  tw`rounded bg-contain bg-no-repeat bg-center h-full rounded sm:rounded-none sm:rounded-tl-2xl sm:rounded-tr-2xl sm:rounded-bl-2xl sm:rounded-br-2xl`,
 ]);
 const TextContent = tw.div`lg:py-8 text-center md:text-left`;
 
 const Subheading = tw(SubheadingBase)`text-center md:text-left`;
 const Heading = tw(
   SectionHeading
-)`mt-0 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
+)`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
 const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`;
 
 const Statistics = tw.div`flex flex-col items-center sm:block text-center md:text-left mt-4`;
@@ -60,18 +60,18 @@ export default ({
   imageInsideDiv = true,
   statistics = null,
   textOnLeft = false,
-  session = {},
+  event = {},
 }) => {
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
   //Change the statistics variable as you like, add or delete objects
   const defaultStatistics = [
     {
       key: "Date",
-      value: "2282+",
+      value: "01/01/3000",
     },
     {
       key: "Time",
-      value: "3891+",
+      value: "00:00",
     },
     // {
     //   key: "Recording Link",
@@ -81,36 +81,31 @@ export default ({
 
   if (!statistics) statistics = defaultStatistics;
   const d = async () => {
-    await session;
+    await event;
   };
   d();
-  imageSrc = (session ? session.img : null)
-    ? session
-      ? session.img
+  imageSrc = (event ? event.img : null)
+    ? event
+      ? event.img
       : null
     : imageSrc;
 
-  const reclink = (session ? session.rlink : null)
-    ? session
-      ? session.rlink
+  const reglink = (event? event.reglink : null)
+    ? event
+      ? event.reglink
       : null
     : null;
-  const meetlink = (session ? session.mlink : null)
-    ? session
-      ? session.mlink
+  const datE = (event ? event.date : null)
+    ? event
+      ? event.date
       : null
     : null;
-  const datE = (session ? session.date : null)
-    ? session
-      ? session.date
+  const timE = (event ? event.time : null)
+    ? event
+      ? event.time
       : null
     : null;
-  const timE = (session ? session.time : null)
-    ? session
-      ? session.time
-      : null
-    : null;
-  console.log(session);
+  console.log(event);
   return (
     <Container>
       <TwoColumn css={!imageInsideDiv && tw`md:items-center`}>
@@ -126,17 +121,17 @@ export default ({
           <TextContent>
             {/* {subheading && <Subheading>{datE}</Subheading>} */}
             <Heading>
-              {(session ? session.title : null)
-                ? session
-                  ? session.title
+              {(event ? event.title : null)
+                ? event
+                  ? event.title
                   : null
                 : heading}
             </Heading>
             <Description>
               {" "}
-              {(session ? session.description : null)
-                ? session
-                  ? session.description
+              {(event ? event.description : null)
+                ? event
+                  ? event.description
                   : null
                 : description}
             </Description>
@@ -150,18 +145,14 @@ export default ({
             </Statistics>
             <Statistics>
               <Statistic key={1}>
-                <Key>   <PrimaryButton as="a" href={meetlink} target="_blank">
-              {"Meeting Link"}
+                <Key><PrimaryButton as="a" href={reglink} target="_blank">
+              {"Registration Link"}
             </PrimaryButton></Key>
               </Statistic>
-              <Statistic key={2}>
-                <Key>  <PrimaryButton as="a" href={reclink} target="_blank">
-              {"Recording Link"}
-            </PrimaryButton></Key>
-              </Statistic>
+           
             </Statistics>
-
         
+           
           </TextContent>
         </TextColumn>
       </TwoColumn>

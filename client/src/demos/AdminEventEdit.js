@@ -22,6 +22,8 @@ import MainFeature1 from "components/features/TwoColWithButton.js";
 // import Blog from "components/blogs/ThreeColSimpleWithImage.js";
 // import Testimonial from "components/testimonials/TwoColumnWithImage.js";
 // import ContactUsForm from "components/forms/SimpleContactUs.js";
+
+import EventDedicated from "components/features/EventDedicated";
 import Footer from "components/footers/MiniCenteredFooter.js";
 import { AuthContext } from "../Context/AuthContext";
 
@@ -35,7 +37,8 @@ export default (props) => {
     setIsAuthenticated,
     isAdmin,
     setIsAdmin,
-  } = useContext(AuthContext);
+  } = useContext(AuthContext);  
+  const eventID = props.location.search.slice(1);
   const [event, setEvent] = useState(null);
   const eventID = props.location.search.slice(1);
 
@@ -57,10 +60,11 @@ export default (props) => {
           <Hero getstarted="#bookaslot" />
           {/* <div id="event">
             <SessionDetails />
-          </div> */}
-      
+          </div> */}    <div id="eventdedicated">
+            <EventDedicated event={event} />
+          </div>
           <div id="addresources">
-            <AddResources SEID={eventID} />
+            <AddResources eventID={eventID} />
           </div>
         </AnimationRevealPage>
         <Footer />

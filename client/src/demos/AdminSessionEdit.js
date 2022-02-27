@@ -40,7 +40,7 @@ export default (props) => {
   const sessionID = props.location.search.slice(1);
   const [session, setSession] = useState(null);
   useEffect(() => {
-    SessionService.getSessionByID(sessionID).then((data) => {
+    SessionService.getSessionByID(props.location.search.slice(1)).then((data) => {
       setSession(data.session);
       console.log(session);
     });
@@ -66,7 +66,7 @@ export default (props) => {
             <AddResources SEID={sessionID} />
           </div>
           <div id="editsession">
-            <SessionEdit session={session} />
+            <SessionEdit sessionOld={session} SEID={sessionID}/>
           </div>
         </AnimationRevealPage>
         <Footer />

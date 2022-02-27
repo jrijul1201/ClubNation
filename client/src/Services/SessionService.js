@@ -32,10 +32,10 @@ export default {
         } else return { message: { msgBody: "UnAuthorized" }, msgError: true };
       });
     },
-    editSession: (session) => {
+    editSession: (session,SEID) => {
       return fetch("/session/editsession", {
         method: "post",
-        body: JSON.stringify(session),
+        body: JSON.stringify({SEID:SEID,session:session}),
         headers: {
           "Content-Type": "application/json",
         },

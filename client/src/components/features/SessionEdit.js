@@ -65,7 +65,10 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
   ${tw`pointer-events-none -z-20 absolute left-0 bottom-0 h-64 w-64 opacity-15 transform -translate-x-2/3 text-primary-500`}
 `;
 
-const SessionEdit = (props) => {
+const SessionEdit = ({
+    SEID = "",
+    sessionOld={}
+}) => {
     const [session, setSession] = useState({
         title: "",
         img:"",
@@ -88,7 +91,6 @@ const SessionEdit = (props) => {
         setSession({ ...session, [e.target.name]: e.target.value });
     };
     
-    const [sessions, setSessions] = useState([]);
     const resetForm = () => {
         setSession({
             title: "",
@@ -100,13 +102,21 @@ const SessionEdit = (props) => {
             rlink: ""
         });
     };
-    const history = useHistory();
-
-
     const onSubmit = (e) => {
         e.preventDefault();
         const tmpSessions = [...sessions, session];
-        SessionService.editSession(session).then((data) => {
+        console.log(session);
+        const newSession = {
+          title: session.title === "" ? sessionOld.title : session.title,
+          img: session.img === "" ? sessionOld.img : session.img,
+          date: session.date === "" ? sessionOld.date : session.date,
+          time: session.time === "" ? sessionOld.time : session.time,
+          mlink: session.mlink === "" ? sessionOld.mlink : session.mlink,
+          description: session.description === "" ? sessionOld.description : session.description,
+          rlink: session.rlink === "" ? sessionOld.rlink : session.rlink,
+        };
+    
+        SessionService.editSession(newSession,SEID).then((data) => {
             const { message } = data;
             setMessage(message);
             resetForm();
@@ -119,13 +129,13 @@ const SessionEdit = (props) => {
         setSessions(tmpSessions);
         console.log(sessions);
     };
-    const inputRef = useRef();
-    useEffect(() => {
-        SessionService.getSessions().then((data) => {
-            setSessions(data.sessions);
-            console.log(sessions);
-        });
-    }, [inputRef]);
+    // const inputRef = useRef();
+    // useEffect(() => {
+    //     SessionService.getSessions().then((data) => {
+    //         setSessions(data.sessions);
+    //         console.log(sessions);
+    //     });
+    // }, [inputRef]);
 
     function removeItemOnce(arr, value) {
         var index = arr.indexOf(value);
@@ -142,12 +152,13 @@ const SessionEdit = (props) => {
         });
         setSessions(removeItemOnce(tmpSessions, session));
     };
-    const [activeQuestionIndex, setActiveQuestionIndex] = useState(null);
+    const [activeQuestionIndex, setActiveQuestionIndex] = useState(sessionOld);
 
     const toggleQuestion = (questionIndex) => {
-        if (activeQuestionIndex === questionIndex) setActiveQuestionIndex(null);
+        if (activeQuestionIndex === questionIndex) setActiveQuestionIndex(sessionOld);
         else setActiveQuestionIndex(questionIndex);
     };
+    const [sessions, setSessions] = useState([]);
     return (
         // <AnimationRevealPage>
         <Container tw="m-8">

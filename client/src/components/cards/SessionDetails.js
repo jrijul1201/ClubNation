@@ -381,10 +381,7 @@ export default (props) => {
       console.log(users);
     });
   }, []);
-  console.log("huehue", props.sessions);
-  const [sessions, setSessions] = useState(
-    props.sessions ? props.sessions : []
-  );
+  const [sessions, setSessions] = useState( []);
   useEffect(() => {
     SessionService.getSessions().then((data) => {
       setSessions(data.sessions.reverse());

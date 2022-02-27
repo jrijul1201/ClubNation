@@ -45,7 +45,7 @@ export default () => {
               subheading={<Subheading>About</Subheading>}
               heading="Programming Club (KamandPrompt)"
               buttonRounded={false}
-              // imageSrc="https://user-images.githubusercontent.com/83131033/149828025-baeec356-9307-4f05-8dcc-fa5de8f8db8d.png"
+              imageSrc="https://pc.iitmandi.co.in/img/kamandpromptlogo.svg"
             />
           </div>
           {/* <div id="login">

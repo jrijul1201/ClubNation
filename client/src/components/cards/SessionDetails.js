@@ -240,6 +240,10 @@ import { ReactComponent as PriceIcon } from "feather-icons/dist/icons/dollar-sig
 import { ReactComponent as LocationIcon } from "feather-icons/dist/icons/map-pin.svg";
 import { ReactComponent as StarIcon } from "feather-icons/dist/icons/star.svg";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons";
+import { ReactComponent as TimeIcon } from "feather-icons/dist/icons/clock.svg";
+import { ReactComponent as DateIcon } from "feather-icons/dist/icons/calendar.svg";
+import { ReactComponent as RecIcon } from "feather-icons/dist/icons/film.svg";
+import { ReactComponent as SessIcon } from "feather-icons/dist/icons/external-link.svg";
 import { ReactComponent as PhoneIcon } from "feather-icons/dist/icons/phone.svg";
 import { ReactComponent as UserIcon } from "feather-icons/dist/icons/user.svg";
 import { ReactComponent as AwardIcon } from "feather-icons/dist/icons/award.svg";
@@ -417,21 +421,21 @@ export default (props) => {
                   <TextInfo>
                     <TitleReviewContainer>
                       <Title>{session.title}</Title>
-                      <RatingsInfo>
+                   {/*   <RatingsInfo>
                         <StarIcon />
-                        {/* <Rating>{session.rating}</Rating>*/}
-                      </RatingsInfo>
+                         <Rating>{session.rating}</Rating>
+                   </RatingsInfo>*/}
                     </TitleReviewContainer>
                     <SecondaryInfoContainer>
                       <IconWithText>
                         <IconContainer>
-                          <LocationIcon />
+                          <DateIcon />
                         </IconContainer>
                         <Text>{session.date}</Text>
                       </IconWithText>
                       <IconWithText>
                         <IconContainer>
-                          <PriceIcon />
+                          <TimeIcon />
                         </IconContainer>
                         <Text>{session.time}</Text>
                       </IconWithText>
@@ -439,7 +443,7 @@ export default (props) => {
                     <SecondaryInfoContainer>
                       <IconWithText>
                         <IconContainer>
-                          <LocationIcon />
+                          <SessIcon />
                         </IconContainer>
                         <a href={session.mlink} target="_blank">
                     <Text>Session Link</Text>
@@ -447,7 +451,7 @@ export default (props) => {
                       </IconWithText>
                       <IconWithText>
                         <IconContainer>
-                          <PriceIcon />
+                          <RecIcon />
                         </IconContainer> <a href={session.rlink} target="_blank">
                     <Text>Session Recording Link</Text>
                   </a>    

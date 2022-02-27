@@ -13,6 +13,9 @@ import {
 import EventService from "../../Services/EventService";
 import { ReactComponent as PriceIcon } from "feather-icons/dist/icons/dollar-sign.svg";
 import { ReactComponent as LocationIcon } from "feather-icons/dist/icons/map-pin.svg";
+import { ReactComponent as TimeIcon } from "feather-icons/dist/icons/clock.svg";
+import { ReactComponent as DateIcon } from "feather-icons/dist/icons/calendar.svg";
+import { ReactComponent as RegIcon } from "feather-icons/dist/icons/user-plus.svg";
 import { ReactComponent as StarIcon } from "feather-icons/dist/icons/star.svg";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons";
 import { ReactComponent as PhoneIcon } from "feather-icons/dist/icons/phone.svg";
@@ -188,21 +191,21 @@ export default () => {
                 <TextInfo>
                   <TitleReviewContainer>
                     <Title>{event.title}</Title>
-                    <RatingsInfo>
+                    {/* <RatingsInfo>
                       <StarIcon />
-                 {/* <Rating>{session.rating}</Rating>*/}
-                    </RatingsInfo>
+              <Rating>{session.rating}</Rating>
+                    </RatingsInfo> */}
                   </TitleReviewContainer>
                   <SecondaryInfoContainer>
                     <IconWithText>
                       <IconContainer>
-                        <LocationIcon />
+                        <DateIcon />
                       </IconContainer>
                       <Text>{event.date}</Text>
                     </IconWithText>
                     <IconWithText>
                       <IconContainer>
-                        <PriceIcon />
+                        <TimeIcon />
                       </IconContainer>
                       <Text>{event.time}</Text>
                     </IconWithText>
@@ -210,7 +213,7 @@ export default () => {
                   <SecondaryInfoContainer>
                     <IconWithText>
                       <IconContainer>
-                        <LocationIcon />
+                        <RegIcon />
                       </IconContainer>
                       <Text>{event.reglink}</Text>
                     </IconWithText>

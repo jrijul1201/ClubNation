@@ -46,9 +46,7 @@ export default () => {
           <div id="addsessions">
             <AddSessions />
           </div>
-          <div id="addresources">
-            <AddResources />
-          </div>
+         
         </AnimationRevealPage>
         <Footer />
       </>

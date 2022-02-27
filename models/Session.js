@@ -49,13 +49,11 @@ const SessionSchema = new mongoose.Schema({
     },
     rlink: {
         type: String,
-        required: true,
         min: 1
     },
-    // resources: [{
-    //     type: ResourceSchema,
-    //     required :true,
-    // }]
+    resources: [{
+     type: ResourceSchema,
+    }]
     // resources: [{ type: mongoose.Schema.Types.ObjectId, ref: "Resource" }],
 });
 

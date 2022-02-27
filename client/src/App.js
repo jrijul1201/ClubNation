@@ -144,7 +144,7 @@ export default function App() {
         {/* <UnPrivateRoute path="/login" component={LoginPage} /> */}
         {/* <UnPrivateRoute path="/register" component={SignupPage} /> */}
         <StudentRoute exact path="/student" component={StudentLanding} />
-        <AdminRoute exact path="/admin" component={AdminLanding} />
+        {/* <AdminRoute exact path="/admin" component={AdminLanding} /> */}
         <AdminRoute exact path="/admin_session" component={AdminSession} />
         <AdminRoute path="/admin_session_edit" component={AdminSessionEdit} />
         <Route path="/oldLandingPage">

@@ -103,10 +103,10 @@ const Navbar = (props) => {
     return (
       <>
         <NavLink href="/">Home</NavLink>
-        <NavLink href="#events">Events</NavLink>
-        <NavLink href="#addevents">Add Events</NavLink>
-        <NavLink href="#sessions">Sessions</NavLink>
-        <NavLink href="#addsessions">Add Sessions</NavLink>
+        <NavLink href="#admin_event">Events</NavLink>
+       {/* <NavLink href="#addevents">Add Events</NavLink>*/}
+        <NavLink href="#admin_session">Sessions</NavLink>
+     {/*   <NavLink href="#addsessions">Add Sessions</NavLink>*/}
         <NavLink href="#userdetails">Team</NavLink>
         {/* <NavLink onClick={onClickLogoutHandler} href="#">
           Logout

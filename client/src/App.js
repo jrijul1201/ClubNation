@@ -122,6 +122,8 @@ import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import AdminLanding from "demos/AdminLanding";
 import AdminSession from "demos/AdminSession";
 import AdminSessionEdit from "demos/AdminSessionEdit";
+import AdminEvent from "demos/AdminEvent";
+import AdminEventEdit from "demos/AdminEventEdit";
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
   // return <AnimationRevealPage disabled>xxxxxxxxxx</AnimationRevealPage>;
@@ -147,6 +149,8 @@ export default function App() {
         {/* <AdminRoute exact path="/admin" component={AdminLanding} /> */}
         <AdminRoute exact path="/admin_session" component={AdminSession} />
         <AdminRoute path="/admin_session_edit" component={AdminSessionEdit} />
+        <AdminRoute exact path="/admin_event" component={AdminEvent} />
+        <AdminRoute path="/admin_event_edit" component={AdminEventEdit} />
         <Route path="/oldLandingPage">
           <OldLandingPage />
         </Route>

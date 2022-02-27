@@ -218,7 +218,9 @@ export default () => {
                   </SecondaryInfoContainer>
                   <Description>{event.description}</Description>
                 </TextInfo>
-             
+                <a href={"#/admin_event_edit?"+event._id}>
+                    <PrimaryButton>Event Details</PrimaryButton>
+                  </a>
               </Card>
               );
             } else {

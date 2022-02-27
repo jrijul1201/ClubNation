@@ -57,5 +57,18 @@ eventRouter.get("/events", (req, res) => {
     }
   });
 });
-
+eventRouter.post("/geteventbyid", (req, res) => {
+  console.log("Fetching Event");
+  Event.findById(req.body._id).exec((err, document) => {
+    if (err) {
+      console.log("Events failed to fetch");
+      res.status(500).json({
+        message: { msgBody: "Events failed to fetch", msgError: true },
+      });
+    } else {
+      console.log("Events fetched successfully");
+      res.status(200).json({ event: document });
+    }
+  });
+});
 module.exports = eventRouter;

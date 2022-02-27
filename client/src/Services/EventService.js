@@ -20,6 +20,19 @@ export default {
         } else return { message: { msgBody: "UnAuthorized" }, msgError: true };
       });
     },
+    getEventByID: (id) => {
+      return fetch("/event/geteventbyid", {
+        method: "post",
+        body: JSON.stringify({_id: id}),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((response) => {
+        if (response.status !== 401) {
+          return response.json().then((data) => data);
+        } else return { message: { msgBody: "UnAuthorized" }, msgError: true };
+      });
+    },
     delEvent: (event) => {
       return fetch("/event/delevent", {
         method: "post",

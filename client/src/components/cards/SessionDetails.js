@@ -302,7 +302,7 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
 
 const CardImage = styled.div((props) => [
   `background-image: url("${props.imageSrc}");`,
-  tw`w-full h-56 sm:h-64 bg-cover bg-center rounded sm:rounded-none sm:rounded-tl-4xl`,
+  tw`w-full h-56 sm:h-64 bg-cover bg-center rounded sm:rounded-none sm:rounded-tl-2xl sm:rounded-tr-2xl`,
 ]);
 
 const TextInfo = tw.div`py-6 px-10 py-6`;
@@ -331,7 +331,7 @@ const Text = tw.div`ml-2 text-sm font-semibold text-gray-800`;
 
 const PrimaryButton = tw(
   PrimaryButtonBase
-)`mt-auto sm:text-lg rounded-none w-full rounded sm:rounded-none sm:rounded-br-4xl py-3 sm:py-6`;
+)`mt-auto sm:text-lg rounded-none w-full rounded sm:rounded-none sm:rounded-br-2xl sm:rounded-bl-2xl py-3 sm:py-6`;
 
 export default () => {
   // useState is used instead of useRef below because we want to re-render when sliderRef becomes available (not null)
@@ -438,13 +438,16 @@ export default () => {
                         <IconContainer>
                           <LocationIcon />
                         </IconContainer>
-                        <Text>{session.mlink}</Text>
+                        <a href={session.mlink} target="_blank">
+                    <Text>Session Link</Text>
+                  </a> 
                       </IconWithText>
                       <IconWithText>
                         <IconContainer>
                           <PriceIcon />
-                        </IconContainer>
-                        <Text>{session.rlink}</Text>
+                        </IconContainer> <a href={session.rlink} target="_blank">
+                    <Text>Session Recording Link</Text>
+                  </a>    
                       </IconWithText>
                     </SecondaryInfoContainer>
                     <Description>{session.description}</Description>

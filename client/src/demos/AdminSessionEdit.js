@@ -24,6 +24,7 @@ import MainFeature1 from "components/features/TwoColWithButton.js";
 import Footer from "components/footers/MiniCenteredFooter.js";
 import { AuthContext } from "../Context/AuthContext";
 import SessionDedicated from "components/features/SessionDedicated";
+import SessionEdit from "components/features/SessionEdit";
 
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
 
@@ -63,6 +64,9 @@ export default (props) => {
           </div>
           <div id="addresources">
             <AddResources SEID={sessionID} />
+          </div>
+          <div id="editsession">
+            <SessionEdit session={session} />
           </div>
         </AnimationRevealPage>
         <Footer />

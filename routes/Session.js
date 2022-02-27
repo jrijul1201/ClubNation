@@ -71,5 +71,18 @@ sessionRouter.post("/getsessionbyid", (req, res) => {
     }
   });
 });
+sessionRouter.post("/delsession", (req, res) => {
+  Session.findByIdAndUpdate(req.body._id, (err) => {
+    if (err) {
+      console.log("Sessions failed to update");
+      res.status(500).json({
+        message: { msgBody: "Sessions failed to update", msgError: true },
+      });
+    } else {
+      console.log("Sessions updated successfully");
+    }
+  });
+});
+
 
 module.exports = sessionRouter;

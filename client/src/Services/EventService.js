@@ -33,6 +33,19 @@ export default {
         } else return { message: { msgBody: "UnAuthorized" }, msgError: true };
       });
     },
+    editEvent: (event) => {
+      return fetch("/event/editevent", {
+        method: "post",
+        body: JSON.stringify(event),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((response) => {
+        if (response.status !== 401) {
+          return response.json().then((data) => data);
+        } else return { message: { msgBody: "UnAuthorized" }, msgError: true };
+      });
+    },
     delEvent: (event) => {
       return fetch("/event/delevent", {
         method: "post",

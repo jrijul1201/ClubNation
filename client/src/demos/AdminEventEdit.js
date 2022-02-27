@@ -26,7 +26,7 @@ import MainFeature1 from "components/features/TwoColWithButton.js";
 import EventDedicated from "components/features/EventDedicated";
 import Footer from "components/footers/MiniCenteredFooter.js";
 import { AuthContext } from "../Context/AuthContext";
-
+import EventEdit from "components/features/EventEdit";
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
 
 export default (props) => {
@@ -64,6 +64,9 @@ export default (props) => {
           </div>
           <div id="addresources">
             <AddResources eventID={eventID} />
+          </div>
+          <div id="editevent">
+            <EventEdit event={event} />
           </div>
         </AnimationRevealPage>
         <Footer />

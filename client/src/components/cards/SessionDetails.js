@@ -413,7 +413,7 @@ export default (props) => {
       <Content>
         <HeaderContent>
           <Subheading>ClubNation</Subheading>
-          <Heading>Session Details</Heading>
+          <Heading>Sessions</Heading>
         </HeaderContent>
         {searchBar()}
         <TabContent>

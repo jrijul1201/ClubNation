@@ -3,7 +3,7 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Hero from "components/hero/BackgroundAsImageWithCenteredContent.js";
 // import HeroAdmin from "components/hero/NoOfUsers.js";
 import LetUsTalk from "components/LetsTalk";
-import Resources from "components/faqs/SingleCol.js";
+import Resources from "components/faqs/ShowResources.js";
 import AddResources from "components/features/AddResources.js";
 import AddSessions from "components/features/AddSessions.js";
 import SessionDetails from "components/cards/SessionDetails.js";
@@ -43,7 +43,7 @@ export default () => {
           <div id="about">
             <MainFeature1
               subheading={<Subheading>About</Subheading>}
-              heading="We aim to get you started on your Investment Journey."
+              heading="Programming Club (KamandPrompt)"
               buttonRounded={false}
               // imageSrc="https://user-images.githubusercontent.com/83131033/149828025-baeec356-9307-4f05-8dcc-fa5de8f8db8d.png"
             />

@@ -71,7 +71,7 @@ import TrendingCard from "components/cards/TabCardGrid.js";
 // import Testimonial from "components/testimonials/SimplePrimaryBackground.js";
 
 // import FAQ from "components/faqs/SimpleWithSideImage.js";
-import FAQ from "components/faqs/SingleCol.js";
+import FAQ from "components/faqs/ShowResources.js";
 import ShowSlots from "components/faqs/ShowSlots.js";
 import AddResources from "components/features/AddResources";
 import AddSlot from "components/features/AddSlot";
@@ -123,7 +123,7 @@ import AdminLanding from "demos/AdminLanding";
 import AdminSession from "demos/AdminSession";
 import StudentSession from "demos/StudentSession";
 import AdminSessionEdit from "demos/AdminSessionEdit";
-// import EventView from "demos/EventView";
+import EventView from "demos/EventView";
 import AdminEvent from "demos/AdminEvent";
 import StudentEvent from "demos/StudentEvent";
 import AdminEventEdit from "demos/AdminEventEdit";
@@ -149,7 +149,7 @@ export default function App() {
         </Route> */}
         {/* <UnPrivateRoute path="/login" component={LoginPage} /> */}
         {/* <UnPrivateRoute path="/register" component={SignupPage} /> */}
-        <StudentRoute exact path="/student" component={StudentLanding} />
+        {/* <StudentRoute exact path="/student" component={StudentLanding} /> */}
         {/* <AdminRoute exact path="/admin" component={AdminLanding} /> */}
         <AdminRoute exact path="/admin_session" component={AdminSession} />
         <AdminRoute path="/admin_session_edit" component={AdminSessionEdit} />
@@ -158,7 +158,7 @@ export default function App() {
         <StudentRoute exact path="/sessions" component={StudentSession} />
         <StudentRoute path="/session" component={SessionView} />
         <StudentRoute exact path="/events" component={StudentEvent} />
-        {/* <StudentRoute path="/event" component={EventView} /> */}
+        <StudentRoute path="/event" component={EventView} />
         <Route path="/oldLandingPage">
           <OldLandingPage />
         </Route>

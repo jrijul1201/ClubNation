@@ -3,7 +3,7 @@ import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Hero from "components/hero/BackgroundAsImageWithCenteredContent.js";
 // import HeroAdmin from "components/hero/NoOfUsers.js";
 import LetUsTalk from "components/LetsTalk";
-import Resources from "components/faqs/SingleCol.js";
+import Resources from "components/faqs/ShowResources.js";
 import AddResources from "components/features/AddResources.js";
 import AddSessions from "components/features/AddSessions.js";
 import SessionDetails from "components/cards/SessionDetails.js";
@@ -63,7 +63,7 @@ export default (props) => {
             <EventDedicated event={event} />
           </div>
           <div id="addresources">
-            <AddResources eventID={eventID} />
+            <AddResources SEID={eventID} />
           </div>
           <div id="editevent">
             <EventEdit event={event} />

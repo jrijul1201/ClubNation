@@ -28,7 +28,7 @@ contactRouter.post("/contact", (req, res) => {
     
     const mail = {
       from: name,
-      to: "capibulladvisors@gmail.com",
+      to: "b20126@students.iitmandi.ac.in",
       subject: ` ${subject}`,
       html: `<p>Name: ${name}</p>
              <p>Email: ${email}</p>
@@ -39,7 +39,7 @@ contactRouter.post("/contact", (req, res) => {
       if (error) {
         res.json({ status: "ERROR" });
       } else {
-        res.json({ status: "Message Sent" });
+        res.json({ status: "Mail Sent" });
       }
     });
   });

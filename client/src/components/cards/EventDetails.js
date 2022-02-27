@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import UserdetailsService from "../../Services/UserdetailsService";
 import Slider from "react-slick";
@@ -25,6 +25,7 @@ import { ReactComponent as ChevronLeftIcon } from "feather-icons/dist/icons/chev
 import { ReactComponent as ChevronRightIcon } from "feather-icons/dist/icons/chevron-right.svg";
 import { ReactComponent as SearchIcon } from "feather-icons/dist/icons/search.svg";
 import { ReactComponent as MailIcon } from "feather-icons/dist/icons/mail.svg";
+import { AuthContext } from "../../Context/AuthContext";
 
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-2.svg";
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-5.svg";
@@ -117,6 +118,14 @@ export default () => {
   const onChange = (e) => {
     setQuery(e.target.value);
   };
+  const {
+    user,
+    setUser,
+    isAuthenticated,
+    setIsAuthenticated,
+    isAdmin,
+    setIsAdmin,
+  } = useContext(AuthContext);
 
   const [sliderRef, setSliderRef] = useState(null);
   const sliderSettings = {
@@ -193,7 +202,7 @@ export default () => {
                     <Title>{event.title}</Title>
                     {/* <RatingsInfo>
                       <StarIcon />
-              <Rating>{session.rating}</Rating>
+              <Rating>{event.rating}</Rating>
                     </RatingsInfo> */}
                   </TitleReviewContainer>
                   <SecondaryInfoContainer>
@@ -222,7 +231,8 @@ export default () => {
                   </SecondaryInfoContainer>
                   {/* <Description>{event.description}</Description> */}
                 </TextInfo>
-                <a href={"#/admin_event_edit?"+event._id}>
+                <a href={isAdmin?("#/admin_event_edit?" + event._id):("#/event?" + event._id)}>
+                {/* <a href={"#/admin_event_edit?"+event._id}> */}
                     <PrimaryButton>Event Details</PrimaryButton>
                   </a>
               </Card>

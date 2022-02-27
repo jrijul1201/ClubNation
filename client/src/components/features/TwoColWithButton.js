@@ -74,7 +74,7 @@ export default ({
     </>
   ),
   // description = "CapiBull is a one-stop pro-bono solution to all your hesitations relating to personal finance. We provide the basic personal financial advisory you need to embark on your financial freedom.",
-  description = "I am a finance major at SSCBS. I am also the founder of Bullzone Analytics, a wealth management firm, handling an AUM of over INR 6 crores. I am an incoming valuation analyst at KPMG and have worked with VCs in the past. Actively helped 30+ people in their portfolio creation in this financial year (2022).",
+  description = "An enthusiastic coder? Here is the club for you. It is a club dedicated to programming-related activities. It keeps you updated with all the programming-related activities and competitions. It also organizes several competitions and workshops to increase coding skills. The Association for Computing and Machinery(ACM) Chapter at IIT Mandi organizes various guest lectures and tutorials from time to time.  ",
   // primaryButtonText = "Learn More",
   primaryButtonUrl = "https://timerse.com",
   imageSrc = TeamIllustrationSrc,

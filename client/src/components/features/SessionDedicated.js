@@ -48,11 +48,7 @@ const DecoratorBlob = styled(SvgDotPattern)((props) => [
 
 export default ({
   subheading = "Date",
-  heading = (
-    <>
-      Title
-    </>
-  ),
+  heading = <>Title</>,
   description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
   primaryButtonText = "Learn More",
   primaryButtonUrl = "https://timerse.com",
@@ -153,12 +149,12 @@ export default ({
               </Statistic>
             </Statistics>
 
-              <PrimaryButton as="a" href={meetlink} target="_blank">
-                {"Meeting Link"}
-              </PrimaryButton>
-              <PrimaryButton as="a" href={reclink} target="_blank">
-                {"Recording Link"}
-              </PrimaryButton>
+            <PrimaryButton as="a" href={meetlink} target="_blank">
+              {"Meeting Link"}
+            </PrimaryButton>
+            <PrimaryButton as="a" href={reclink} target="_blank">
+              {"Recording Link"}
+            </PrimaryButton>
           </TextContent>
         </TextColumn>
       </TwoColumn>

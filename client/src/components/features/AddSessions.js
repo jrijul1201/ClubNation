@@ -176,7 +176,7 @@ const AddSessions = ({
                             placeholder="Title"
                         />
                           <Input
-                            type="text"
+                            type="url"
                             name="img"
                             value={session.img}
                             onChange={onChange}
@@ -196,7 +196,7 @@ const AddSessions = ({
                             onChange={onChange}
                             placeholder="Time"
                         />  <Input
-                            type="text"
+                            type="url"
                             name="mlink"
                             value={session.mlink}
                             onChange={onChange}
@@ -210,7 +210,7 @@ const AddSessions = ({
                             placeholder="Description"
                         />
                         <Input
-                            type="text"
+                            type="url"
                             name="rlink"
                             value={session.rlink}
                             onChange={onChange}

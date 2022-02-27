@@ -174,7 +174,7 @@ const AddEvents = ({
                             placeholder="Title"
                         />
                         <Input
-                            type="text"
+                            type="url"
                             name="img"
                             value={event.img}
                             onChange={onChange}
@@ -193,7 +193,7 @@ const AddEvents = ({
                             onChange={onChange}
                             placeholder="Time"
                         />  <Input
-                            type="text"
+                            type="url"
                             name="reglink"
                             value={event.reglink}
                             onChange={onChange}

@@ -40,9 +40,9 @@ export default () => {
       <>
         <AnimationRevealPage>
           <Hero getstarted="#bookaslot" />
-          <div id="sessions">
+          {/* <div id="sessions">
             <SessionDetails />
-          </div>
+          </div> */}
           <div id="addsessions">
             <AddSessions />
           </div>

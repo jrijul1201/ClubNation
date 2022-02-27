@@ -333,7 +333,7 @@ const PrimaryButton = tw(
   PrimaryButtonBase
 )`mt-auto sm:text-lg rounded-none w-full rounded sm:rounded-none sm:rounded-br-4xl py-3 sm:py-6`;
 
-export default () => {
+export default (props) => {
   // useState is used instead of useRef below because we want to re-render when sliderRef becomes available (not null)
   const [query, setQuery] = useState("");
   const onChange = (e) => {
@@ -368,7 +368,10 @@ export default () => {
       console.log(users);
     });
   }, []);
-  const [sessions, setSessions] = useState([]);
+  console.log("huehue", props.sessions);
+  const [sessions, setSessions] = useState(
+    props.sessions ? props.sessions : []
+  );
   useEffect(() => {
     SessionService.getSessions().then((data) => {
       setSessions(data.sessions.reverse());
@@ -449,7 +452,7 @@ export default () => {
                     </SecondaryInfoContainer>
                     <Description>{session.description}</Description>
                   </TextInfo>
-                  <a href={"#/admin_session_edit?"+session._id}>
+                  <a href={"#/admin_session_edit?" + session._id}>
                     <PrimaryButton>Session Details</PrimaryButton>
                   </a>
                 </Card>

@@ -35,14 +35,13 @@ export default (props) => {
     isAdmin,
     setIsAdmin,
   } = useContext(AuthContext);
+  const sessionID = props.location.search.slice(1);
   const [session, setSession] = useState(null);
   useEffect(() => {
-    SessionService.getSessionByID(props.location.search.slice(1)).then(
-      (data) => {
-        setSession(data.session);
-        console.log(session);
-      }
-    );
+    SessionService.getSessionByID(sessionID).then((data) => {
+      setSession(data.session);
+      console.log(session);
+    });
   }, []);
 
   // console.log(props.location.search.slice(1));
@@ -58,7 +57,7 @@ export default (props) => {
           {/* <div id="addsession">
             <AddSessions />
           </div> */}
-          <div id="addresources">
+          <div id="addresources" sessionID={sessionID}>
             <AddResources />
           </div>
         </AnimationRevealPage>

@@ -4,12 +4,13 @@ const resourceRouter = express.Router();
 const Resource = require("../models/Resource");
 
 resourceRouter.post("/addresource", (req, res) => {
-  const { title, description, media } = req.body;
+  const { title, description, media, SEID } = req.body;
 
   const newResource = new Resource({
     title,
     description,
     media,
+    SEID,
   });
   newResource.save((err) => {
     if (err)
@@ -39,8 +40,8 @@ resourceRouter.post("/delresource", (req, res) => {
   });
 });
 
-resourceRouter.get("/resources", (req, res) => {
-  console.log("Fetching Resources");
+resourceRouter.post("/resources", (req, res) => {
+  console.log("Fetching Resources", req.body.SEID);
   Resource.find().exec((err, document) => {
     if (err) {
       console.log("Resources failed to fetch");
@@ -49,7 +50,13 @@ resourceRouter.get("/resources", (req, res) => {
       });
     } else {
       console.log("Resources fetched successfully");
-      res.status(200).json({ resources: document });
+      var reso = [];
+      for (const doc of document) {
+        if (doc.SEID === req.body.SEID) {
+          reso.push(doc);
+        };
+      };
+      res.status(200).json({ resources: reso });
     }
   });
 });

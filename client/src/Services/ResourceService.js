@@ -1,6 +1,12 @@
 export default {
-  getResources: () => {
-    return fetch("/resource/resources").then((response) => {
+  getResources: (SEID) => {
+    return fetch("/resource/resources", {
+      method: "post",
+      body: JSON.stringify({SEID: SEID}),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => {
       if (response.status !== 401) {
         return response.json().then((data) => data);
       } else return { message: { msgBody: "UnAuthorized", msgError: true } };

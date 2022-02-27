@@ -62,7 +62,7 @@ export default (props) => {
             <SessionDedicated session={session} />
           </div>
           <div id="addresources">
-            <AddResources sessionID={sessionID} />
+            <AddResources SEID={sessionID} />
           </div>
         </AnimationRevealPage>
         <Footer />

@@ -18,8 +18,6 @@ app.use('/user',userRouter);
 
 const resourceRouter = require('./routes/Resource');
 app.use('/resource',resourceRouter);
-const slotRouter = require('./routes/Slot');
-app.use('/slot',slotRouter);
 
 const sessionRouter = require('./routes/Session');
 app.use('/session',sessionRouter);
@@ -28,15 +26,6 @@ const eventRouter = require('./routes/Event');
 app.use('/event',eventRouter);
 const contactRouter = require('./routes/Contact');
 app.use('/con',contactRouter);
-
-const userdetailsRouter = require('./routes/Userdetail');
-app.use('/userdetail',userdetailsRouter);
-
-const slotsbookedRouter = require('./routes/SlotsBooked');
-app.use('/slotbooked',slotsbookedRouter);
-
-const statsRouter = require('./routes/Stats');
-app.use('/stat',statsRouter);
 
 const PORT = process.env.PORT || 5000;
 

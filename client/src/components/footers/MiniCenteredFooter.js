@@ -61,10 +61,10 @@ export default () => {
     return (
       <>
       <Link href="/">Home</Link>
-        <Link href="#userdetails">Events</Link>
-        <Link href="#addsessions">Add Events</Link>
-        <Link href="#userdetails">Sessions</Link>
-        <Link href="#addsessions">Add Sessions</Link>
+        <Link href="#admin_event">Events</Link>
+        {/* <Link href="#addsessions">Add Events</Link> */}
+        <Link href="#admin_session">Sessions</Link>
+        {/* <Link href="#addsessions">Add Sessions</Link> */}
         <Link href="#userdetails">Team</Link>
        
       </>

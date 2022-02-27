@@ -71,11 +71,13 @@ const AddResources = ({
 
   primaryButtonText = "Learn More",
   primaryButtonUrl = "https://timerse.com",
+  SEID = "",
 }) => {
   const [resource, setResource] = useState({
     title: "",
     description: "",
     media: "",
+    SEID: SEID,
   });
   const [message, setMessage] = useState(null);
   let timerID = useRef(null);
@@ -95,6 +97,7 @@ const AddResources = ({
       title: "",
       description: "",
       media: "",
+      SEID: "",
     });
   };
 
@@ -115,7 +118,7 @@ const AddResources = ({
   };
   const inputRef = useRef();
   useEffect(() => {
-    ResourceService.getResources().then((data) => {
+    ResourceService.getResources(SEID).then((data) => {
       setResources(data.resources);
       console.log(resources);
     });

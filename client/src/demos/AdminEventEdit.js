@@ -40,6 +40,8 @@ export default (props) => {
   } = useContext(AuthContext);  
   const eventID = props.location.search.slice(1);
   const [event, setEvent] = useState(null);
+  const eventID = props.location.search.slice(1);
+
   useEffect(() => {
     EventService.getEventByID(props.location.search.slice(1)).then(
       (data) => {
@@ -50,13 +52,13 @@ export default (props) => {
   }, []);
 
   // console.log(props.location.search.slice(1));
-  // console.log(session);
+  // console.log(event);
   const adminLP = () => {
     return (
       <>
         <AnimationRevealPage>
           <Hero getstarted="#bookaslot" />
-          {/* <div id="session">
+          {/* <div id="event">
             <SessionDetails />
           </div> */}    <div id="eventdedicated">
             <EventDedicated event={event} />

@@ -126,6 +126,7 @@ const Navbar = (props) => {
   };
   const handleFailure = (result) => {
     alert("Login failed. Please try again later.");
+    console.log(result);
   };
   const handleLogin = (result) => {
     AuthService.login({ token: result.tokenId }).then((data) => {
@@ -186,7 +187,7 @@ const Navbar = (props) => {
               </PrimaryLink>
             </button>
           )}
-          clientId={process.env.GCLIENT_ID}
+          clientId="373151948151-5k1he8abmr2a1ok10g07c9phkmjld2jk.apps.googleusercontent.com"
           buttonText="Log in with Google"
           onSuccess={handleLogin}
           onFailure={handleFailure}

@@ -6,8 +6,8 @@ const contactEmail = nodemailer.createTransport({
     auth: {
       // user: "capibulladvisors@gmail.com",
       // pass: "capibull9550",
-      user: process.env.USER,
-      pass: process.env.PWD,
+      user: "cpdashboard11@gmail.com",
+      pass: "cp-dash@",
     },
   });
   

@@ -31,13 +31,19 @@ const SocialLink = styled.a`
 
 const CopyrightText = tw.p`text-center mt-10 font-medium tracking-wide text-sm text-gray-600`;
 export default () => {
-  const {user,setUser,isAuthenticated,setIsAuthenticated,isAdmin,setIsAdmin} =
-  useContext(AuthContext);
+  const {
+    user,
+    setUser,
+    isAuthenticated,
+    setIsAuthenticated,
+    isAdmin,
+    setIsAdmin,
+  } = useContext(AuthContext);
 
   const unauthenticatedFooter = () => {
     return (
       <>
-        <Link href="/">Home</Link>
+        <Link href="#about">Home</Link>
         {/* <Link href="#login">Login</Link> */}
         {/* <Link href="#login">Resources</Link> */}
         <Link href="#about">About</Link>
@@ -48,25 +54,22 @@ export default () => {
   const authenticatedFooter = () => {
     return (
       <>
-       <Link href="/">Home</Link>
+        <Link href="#about">Home</Link>
         <Link href="#events">Events</Link>
         <Link href="#sessions">Sessions</Link>
-        <Link href="#letstalk">Request/Idea Panel</Link>
-      
-     
+        <Link href="#letstalk">Contact Us</Link>
       </>
     );
   };
   const adminFooter = () => {
     return (
       <>
-      <Link href="/">Home</Link>
+        <Link href="/">Home</Link>
         <Link href="#admin_event">Events</Link>
         {/* <Link href="#addsessions">Add Events</Link> */}
         <Link href="#admin_session">Sessions</Link>
         {/* <Link href="#addsessions">Add Sessions</Link> */}
-        <Link href="#userdetails">Team</Link>
-       
+        {/* <Link href="#userdetails">Team</Link> */}
       </>
     );
   };
@@ -103,10 +106,7 @@ export default () => {
             {/* <SocialLink href="https://discord.gg/F6r2DYd6Z6" target={"_blank"}>
               <DiscordIcon />
             </SocialLink> */}
-            <SocialLink
-              href="https://instagram.com/"
-              target={"_blank"}
-            >
+            <SocialLink href="https://instagram.com/" target={"_blank"}>
               <InstagramIcon />
             </SocialLink>
           </SocialLinksContainer>

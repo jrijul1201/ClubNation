@@ -71,7 +71,7 @@ const Navbar = (props) => {
   const unauthenticatedNavBar = () => {
     return (
       <>
-        <NavLink href="/">Home</NavLink>
+        <NavLink href="#about">Home</NavLink>
         {/*NavLink href="#login">Book a Slot</NavLink>
         <NavLink href="#login">Resources</NavLink>
         <NavLink href="#letstalk">Basic Stock Market Course</NavLink>*/}
@@ -87,12 +87,12 @@ const Navbar = (props) => {
   const authenticatedNavBar = () => {
     return (
       <>
-        <NavLink href="/">Home</NavLink>
+        <NavLink href="#about">Home</NavLink>
         <NavLink href="#events">Events</NavLink>
         <NavLink href="#sessions">Sessions</NavLink>
-        <NavLink href="#letstalk">Request/Idea Panel</NavLink>
+        <NavLink href="#letstalk">Contact Us</NavLink>
         {/* <NavLink href="#letstalk">Basic Stock Market Course</NavLink>*/}
-      {/*  <NavLink href="#about">About</NavLink>*/}
+        {/*  <NavLink href="#about">About</NavLink>*/}
         {/* <NavLink href="/#/Todos">Todos</NavLink> */}
         {/* <NavLink onClick={onClickLogoutHandler} href="#">
           Logout
@@ -103,12 +103,12 @@ const Navbar = (props) => {
   const adminNavBar = () => {
     return (
       <>
-        <NavLink href="/">Home</NavLink>
+        <NavLink href="#about">Home</NavLink>
         <NavLink href="#admin_event">Events</NavLink>
-       {/* <NavLink href="#addevents">Add Events</NavLink>*/}
+        {/* <NavLink href="#addevents">Add Events</NavLink>*/}
         <NavLink href="#admin_session">Sessions</NavLink>
-     {/*   <NavLink href="#addsessions">Add Sessions</NavLink>*/}
-        <NavLink href="#userdetails">Team</NavLink>
+        {/*   <NavLink href="#addsessions">Add Sessions</NavLink>*/}
+        {/* <NavLink href="#userdetails">Team</NavLink> */}
         {/* <NavLink onClick={onClickLogoutHandler} href="#">
           Logout
         </NavLink> */}
@@ -169,18 +169,22 @@ const Navbar = (props) => {
         </SocialLink>
       </SocialLinksContainer> */}
       {isAuthenticated ? (
-        <button><PrimaryLink onClick={onClickLogoutHandler} href="/#">
-          Logout
-        </PrimaryLink></button>
+        <button>
+          <PrimaryLink onClick={onClickLogoutHandler} href="/#">
+            Logout
+          </PrimaryLink>
+        </button>
       ) : (
         <GoogleLogin
           render={(renderProps) => (
-            <button><PrimaryLink
-              onClick={renderProps.onClick}
-              disabled={renderProps.disabled}
-            >
-              Login
-            </PrimaryLink></button>
+            <button>
+              <PrimaryLink
+                onClick={renderProps.onClick}
+                disabled={renderProps.disabled}
+              >
+                Login
+              </PrimaryLink>
+            </button>
           )}
           clientId="373151948151-7ucdilvhgce7u17fv2s1vs67bbvjesh3.apps.googleusercontent.com"
           buttonText="Log in with Google"

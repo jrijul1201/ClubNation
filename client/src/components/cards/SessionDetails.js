@@ -457,7 +457,7 @@ export default (props) => {
                   </a>    
                       </IconWithText>
                     </SecondaryInfoContainer>
-                    <Description>{session.description}</Description>
+                    {/* <Description>{session.description}</Description> */}
                   </TextInfo>
                   <a href={"#/admin_session_edit?" + session._id}>
                     <PrimaryButton>Session Details</PrimaryButton>

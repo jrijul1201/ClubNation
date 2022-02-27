@@ -55,6 +55,7 @@ const Navbar = (props) => {
       if (data.success) {
         setUser(data.user);
         setIsAuthenticated(false);
+        setIsAdmin(false);
       }
     });
   };
@@ -129,10 +130,11 @@ const Navbar = (props) => {
   const handleLogin = (result) => {
     AuthService.login({ token: result.tokenId }).then((data) => {
       console.log(data);
-      const { isAuthenticated, user, message } = data;
+      const { isAuthenticated, user, message, isAdmin } = data;
       if (isAuthenticated) {
         authContext.setUser(user);
         authContext.setIsAuthenticated(isAuthenticated);
+        authContext.setIsAdmin(isAdmin);
         //props.history.push('/todos');
       } else {
         alert(message.msgBody);

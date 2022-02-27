@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import tw from "twin.macro";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
@@ -10,6 +11,7 @@ import {
 } from "components/misc/Headings.js";
 import { SectionDescription } from "components/misc/Typography.js";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
+import SessionDetails from "components/cards/SessionDetails.js";
 import SessionService from "../../Services/SessionService";
 import { ReactComponent as SignUpIcon } from "feather-icons/dist/icons/log-in.svg";
 import { ReactComponent as ChevronDownIcon } from "feather-icons/dist/icons/chevron-down.svg";
@@ -64,14 +66,7 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
   ${tw`pointer-events-none -z-20 absolute left-0 bottom-0 h-64 w-64 opacity-15 transform -translate-x-2/3 text-primary-500`}
 `;
 
-const AddSessions = ({
-    subheading = "Session Management",
-    heading = "Description and Resources",
-    description = "Here are some resources and tools which will help you to manage and understand your finances easily.",
-
-    primaryButtonText = "Learn More",
-    primaryButtonUrl = "https://timerse.com",
-}) => {
+const AddSessions = (props) => {
     const [session, setSession] = useState({
         title: "",
         img:"",
@@ -93,7 +88,8 @@ const AddSessions = ({
     const onChange = (e) => {
         setSession({ ...session, [e.target.name]: e.target.value });
     };
-
+    
+    const [sessions, setSessions] = useState([]);
     const resetForm = () => {
         setSession({
             title: "",
@@ -105,6 +101,8 @@ const AddSessions = ({
             rlink: ""
         });
     };
+    const history = useHistory();
+
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -115,17 +113,18 @@ const AddSessions = ({
             resetForm();
             if (!message.msgError) {
                 timerID = setTimeout(() => {
-                    //   props.history.push("/#/add");
+                    //   history.replace("#/sessions");
                 }, 2000);
             }
         });
-        setSession(tmpSessions);
+        setSessions(tmpSessions);
+        console.log(sessions);
     };
     const inputRef = useRef();
     useEffect(() => {
         SessionService.getSessions().then((data) => {
-            setSession(data.sessions);
-            console.log(session);
+            setSessions(data.sessions);
+            console.log(sessions);
         });
     }, [inputRef]);
 
@@ -142,7 +141,7 @@ const AddSessions = ({
             const { message } = data;
             setMessage(message);
         });
-        setSession(removeItemOnce(tmpSessions, session));
+        setSessions(removeItemOnce(tmpSessions, session));
     };
     const [activeQuestionIndex, setActiveQuestionIndex] = useState(null);
 
@@ -150,7 +149,6 @@ const AddSessions = ({
         if (activeQuestionIndex === questionIndex) setActiveQuestionIndex(null);
         else setActiveQuestionIndex(questionIndex);
     };
-    const [sessions, setSessions] = useState([]);
     return (
         // <AnimationRevealPage>
         <Container tw="m-8">
@@ -226,6 +224,9 @@ const AddSessions = ({
                         </p>
                     </Form>
 
+            <SessionDetails sessions={sessions}/>
+
+{/* 
                     <FAQSContainer>
                         {sessions.map((session, index) => (
                             <FAQ>
@@ -278,9 +279,9 @@ const AddSessions = ({
                                         <br />
                                         <br />
                                     </p>
-                                    <p align="right">
+                                    <p align="right"> */}
                                         {/* <NewPrimaryButton as="a"> */}
-                                        <NewPrimaryButton
+                                        {/* <NewPrimaryButton
                                             as="a"
                                             ref={inputRef}
                                             onClick={() => deleteSession(session)}
@@ -291,7 +292,7 @@ const AddSessions = ({
                                 </Answer>
                             </FAQ>
                         ))}
-                    </FAQSContainer>
+                    </FAQSContainer> */}
                 </Column>
             </ContentWithPaddingXl>
             <DecoratorBlob1 />

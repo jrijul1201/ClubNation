@@ -33,12 +33,12 @@ eventRouter.post("/addevent", (req, res) => {
 eventRouter.post("/delevent", (req, res) => {
   Event.findByIdAndRemove(req.body._id, (err) => {
     if (err) {
-      console.log("Events failed to delete");
+      console.log("Event failed to delete");
       res.status(500).json({
-        message: { msgBody: "Events failed to delete", msgError: true },
+        message: { msgBody: "Event failed to delete", msgError: true },
       });
     } else {
-      console.log("Events deleted successfully");
+      console.log("Event deleted successfully");
     }
   });
 });
@@ -46,12 +46,12 @@ eventRouter.post("/editevent", (req, res) => {
   console.log(req.body.event)
   Event.findByIdAndUpdate(req.body.SEID, req.body.event, (err) => {
     if (err) {
-      console.log("Events failed to update");
+      console.log("Event failed to update");
       res.status(500).json({
-        message: { msgBody: "Events failed to update", msgError: true },
+        message: { msgBody: "Event failed to update", msgError: true },
       });
     } else {
-      console.log("Events updated successfully");
+      console.log("Event updated successfully");
     }
   });
 });

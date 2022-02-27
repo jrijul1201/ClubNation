@@ -33,16 +33,28 @@ sessionRouter.post("/addsession", (req, res) => {
 sessionRouter.post("/delsession", (req, res) => {
   Session.findByIdAndRemove(req.body._id, (err) => {
     if (err) {
-      console.log("Sessions failed to delete");
+      console.log("Session failed to delete");
       res.status(500).json({
-        message: { msgBody: "Sessions failed to delete", msgError: true },
+        message: { msgBody: "Session failed to delete", msgError: true },
       });
     } else {
-      console.log("Sessions deleted successfully");
+      console.log("Session deleted successfully");
     }
   });
 });
-
+sessionRouter.post("/editsession", (req, res) => {
+  console.log(req.body.session)
+  Session.findByIdAndUpdate(req.body.SEID, req.body.session,(err) => {
+    if (err) {
+      console.log("Session failed to update");
+      res.status(500).json({
+        message: { msgBody: "Session failed to update", msgError: true },
+      });
+    } else {
+      console.log("Session updated successfully");
+    }
+  });
+});
 sessionRouter.get("/sessions", (req, res) => {
   console.log("Fetching Sessions");
   Session.find().exec((err, document) => {

@@ -114,7 +114,8 @@ userRouter.post("/login", (req, res) => {
       res.cookie("access_token", tokenn, { httpOnly: true, sameSite: true });
       res.status(200).json({
         isAuthenticated: true,
-        user: req.user,
+        user: user,
+        isAdmin: user.email === "pc@students.iitmandi.ac.in",
       });
     } else {
       res.status(500).json({
@@ -125,6 +126,7 @@ userRouter.post("/login", (req, res) => {
         user: { name: "", username: "", email: "", phone: "", univ: " " },
         success: true,
         isAuthenticated: false,
+        isAdmin: false,
       });
     }
     // }

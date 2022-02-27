@@ -53,6 +53,7 @@ export default () => {
     );
   };
   const page = () => {
+    console.log(isAdmin);
     if (isAuthenticated && isAdmin) return adminLP();
   };
   return <>{page()}</>;

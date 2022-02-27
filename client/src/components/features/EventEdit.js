@@ -25,7 +25,7 @@ const Heading = tw(SectionHeading)`w-full`;
 
 const Description = tw(SectionDescription)`items-center w-full text-center`;
 
-const Column = tw.div`flex flex-col items-center`;
+const Column = tw.div`flex flex-col items-center `;
 const HeaderContent = tw.div``;
 
 const Form = tw.form`mx-auto max-w-3xl`;
@@ -163,11 +163,11 @@ const EventEdit = ({
   const [events, setEvents] = useState([]);
   return (
     // <AnimationRevealPage>
-    <Container tw="m-8">
+    <Container tw="m-8 -mt-32">
       <ContentWithPaddingXl>
         <Column>
           <HeaderContent>
-            <Subheading>ClubNation</Subheading>
+            {/* <Subheading>ClubNation</Subheading> */}
             <Heading>Update Event</Heading>
             <p align="center">
               <Description>

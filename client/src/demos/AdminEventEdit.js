@@ -40,7 +40,6 @@ export default (props) => {
   } = useContext(AuthContext);  
   const eventID = props.location.search.slice(1);
   const [event, setEvent] = useState(null);
-  const eventID = props.location.search.slice(1);
 
   useEffect(() => {
     EventService.getEventByID(props.location.search.slice(1)).then(

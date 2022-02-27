@@ -23,6 +23,7 @@ import MainFeature1 from "components/features/TwoColWithButton.js";
 // import ContactUsForm from "components/forms/SimpleContactUs.js";
 import Footer from "components/footers/MiniCenteredFooter.js";
 import { AuthContext } from "../Context/AuthContext";
+import SessionDedicated from "components/features/SessionDedicated";
 
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
 
@@ -57,8 +58,11 @@ export default (props) => {
           {/* <div id="addsession">
             <AddSessions />
           </div> */}
-          <div id="addresources" sessionID={sessionID}>
-            <AddResources />
+          <div id="sessiondedicated">
+            <SessionDedicated session={session} />
+          </div>
+          <div id="addresources">
+            <AddResources sessionID={sessionID} />
           </div>
         </AnimationRevealPage>
         <Footer />

@@ -71,7 +71,7 @@ import TrendingCard from "components/cards/TabCardGrid.js";
 // import Testimonial from "components/testimonials/SimplePrimaryBackground.js";
 
 // import FAQ from "components/faqs/SimpleWithSideImage.js";
-import FAQ from "components/faqs/SingleCol.js";
+import FAQ from "components/faqs/ShowResources.js";
 import ShowSlots from "components/faqs/ShowSlots.js";
 import AddResources from "components/features/AddResources";
 import AddSlot from "components/features/AddSlot";

@@ -56,7 +56,7 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
 export default ({
   subheading = "CapiBull",
   heading = "Resources and References",
-  description = "Here are some resources and tools which will help you to manage and understand your finances easily.",
+  description = "Here are some resources and tools which will help you.",
 
   primaryButtonText = "Learn More",
   primaryButtonUrl = "https://timerse.com",
@@ -81,10 +81,10 @@ export default ({
         <ContentWithPaddingXl>
           <Column>
             <HeaderContent>
-              {subheading && <Subheading>{subheading}</Subheading>}
-              <Heading>{heading}</Heading>
+          <Subheading>ClubNation</Subheading>
+              <Heading>Resources and References</Heading>
               <p align="center">
-                {description && <Description>{description}</Description>}
+             <Description>Here are some resources and tools which will help you.</Description> 
               </p>
             </HeaderContent>
             <FAQSContainer>

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
@@ -17,6 +17,7 @@ import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-7
 import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-8.svg";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import Logopdf from "../../images/icons8-financial-64.png";
+import { AuthContext } from "../../Context/AuthContext";
 
 const logocss = tw`w-8 h-8`;
 
@@ -73,6 +74,14 @@ const AddResources = ({
   primaryButtonUrl = "https://timerse.com",
   SEID = "",
 }) => {
+  const {
+    user,
+    setUser,
+    isAuthenticated,
+    setIsAuthenticated,
+    isAdmin,
+    setIsAdmin,
+  } = useContext(AuthContext);
   const [resource, setResource] = useState({
     title: "",
     description: "",
@@ -151,49 +160,59 @@ const AddResources = ({
     <Container tw="m-8">
       <ContentWithPaddingXl>
         <Column>
-          <HeaderContent>
-            <Subheading>CapiBull</Subheading>
-            <Heading>Add Resources and References</Heading>
-            <p align="center">
-              <Description>
-                Add title, description and link to resources through this page.
-              </Description>
-            </p>
-          </HeaderContent>
-          <br />
-          <br />
-          <br />
-          <Form onSubmit={onSubmit}>
-            <Input
-              type="text"
-              name="title"
-              value={resource.title}
-              onChange={onChange}
-              placeholder="Title"
-            />
-            <Input
-              type="text"
-              name="description"
-              value={resource.description}
-              onChange={onChange}
-              placeholder="Description"
-            />
-            <Input
-              type="url"
-              name="media"
-              value={resource.media}
-              onChange={onChange}
-              placeholder="File Link"
-            />
+          {isAdmin ? (
+            <>
+              <HeaderContent>
+                <Subheading>CapiBull</Subheading>
+                <Heading>Add Resources and References</Heading>
+                <p align="center">
+                  <Description>
+                    Add title, description and link to resources through this
+                    page.
+                  </Description>
+                </p>
+              </HeaderContent>
+              <br />
+              <br />
+              <br />
+              <Form onSubmit={onSubmit}>
+                <Input
+                  type="text"
+                  name="title"
+                  value={resource.title}
+                  onChange={onChange}
+                  placeholder="Title"
+                />
+                <Input
+                  type="text"
+                  name="description"
+                  value={resource.description}
+                  onChange={onChange}
+                  placeholder="Description"
+                />
+                <Input
+                  type="url"
+                  name="media"
+                  value={resource.media}
+                  onChange={onChange}
+                  placeholder="File Link"
+                />
 
-            <p align="right">
-              <SubmitButton type="submit">
-                <SignUpIcon className="icon" />
-                <span className="text">Add</span>
-              </SubmitButton>
-            </p>
-          </Form>
-
+                <p align="right">
+                  <SubmitButton type="submit">
+                    <SignUpIcon className="icon" />
+                    <span className="text">Add</span>
+                  </SubmitButton>
+                </p>
+              </Form>
+            </>
+          ) : (  <HeaderContent>
+            {/* <Subheading>ClubNation</Subheading> */}
+                <Heading>Resources</Heading>
+                <p align="center">
+               <Description>Here are some resources and tools which will help you.</Description> 
+                </p>
+              </HeaderContent>)}
           <FAQSContainer>
             {resources.map((resource, index) => (
               <FAQ>
@@ -248,13 +267,23 @@ const AddResources = ({
                   </p>
                   <p align="right">
                     {/* <NewPrimaryButton as="a"> */}
-                    <NewPrimaryButton
-                      as="a"
-                      ref={inputRef}
-                      onClick={() => deleteResource(resource)}
-                    >
-                      {(primaryButtonText = "Delete")}
-                    </NewPrimaryButton>
+                    {isAdmin ? (
+                      <NewPrimaryButton
+                        as="a"
+                        ref={inputRef}
+                        onClick={() => deleteResource(resource)}
+                      >
+                        {(primaryButtonText = "Delete")}
+                      </NewPrimaryButton>
+                    ) : (
+                      <NewPrimaryButton
+                        as="a"
+                        target="_blank"
+                        href={resource.media}
+                      >
+                        {(primaryButtonText = "View")}
+                      </NewPrimaryButton>
+                    )}
                   </p>
                 </Answer>
               </FAQ>

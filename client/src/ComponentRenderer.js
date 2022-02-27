@@ -81,7 +81,7 @@ import ThreeColumnWithProfileImageTestimonial from "components/testimonials/Thre
 import SimplePrimaryBackgroundTestimonial from "components/testimonials/SimplePrimaryBackground.js";
 
 import SimpleWithSideImageFAQS from "components/faqs/SimpleWithSideImage.js";
-import SingleColFAQS from "components/faqs/SingleCol.js";
+import SingleColFAQS from "components/faqs/ShowResources.js";
 import TwoColumnPrimaryBackgroundFAQS from "components/faqs/TwoColumnPrimaryBackground.js";
 
 import SimpleContactUsForm from "components/forms/SimpleContactUs.js";

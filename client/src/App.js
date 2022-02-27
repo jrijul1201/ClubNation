@@ -55,7 +55,7 @@ import Hero from "./components/hero/NoOfUsers";
 // import Pricing from "components/pricing/TwoPlansWithDurationSwitcher.js";
 
 // import SliderCard from "components/cards/ThreeColSlider.js";
-import TrendingCard from "components/cards/TabCardGrid.js";
+// import TrendingCard from "components/cards/TabCardGrid.js";
 // import Portfolio from "components/cards/PortfolioTwoCardsWithImage.js";
 // import TabGrid from "components/cards/TabCardGrid.js";
 
@@ -75,7 +75,7 @@ import FAQ from "components/faqs/ShowResources.js";
 import ShowSlots from "components/faqs/ShowSlots.js";
 import AddResources from "components/features/AddResources";
 import AddSlot from "components/features/AddSlot";
-import SlotsBooked from "components/cards/SlotsBooked";
+// import SlotsBooked from "components/cards/SlotsBooked";
 // import FAQ from "components/faqs/TwoColumnPrimaryBackground.js";
 
 // import ContactUsForm from "components/forms/SimpleContactUs.js";
@@ -111,7 +111,7 @@ import SignupPage from "pages/Signup.js";
 // import TermsOfServicePage from "pages/TermsOfService.js";
 // import PrivacyPolicyPage from "pages/PrivacyPolicy.js";
 
-import ComponentRenderer from "ComponentRenderer.js";
+// import ComponentRenderer from "ComponentRenderer.js";
 import MainLandingPage from "demos/EventLandingPage.js";
 import Home from "demos/Home.js";
 import StudentLanding from "demos/StudentLanding.js";
@@ -135,22 +135,7 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/components/:type/:subtype/:name">
-          <ComponentRenderer />
-        </Route>
-        <Route path="/components/:type/:name">
-          <ComponentRenderer />
-        </Route>
-        <Route path="/thank-you">
-          <ThankYouPage />
-        </Route>
-        {/* <Route path="/usercount">
-          <Hero />
-        </Route> */}
-        {/* <UnPrivateRoute path="/login" component={LoginPage} /> */}
-        {/* <UnPrivateRoute path="/register" component={SignupPage} /> */}
-        {/* <StudentRoute exact path="/student" component={StudentLanding} /> */}
-        {/* <AdminRoute exact path="/admin" component={AdminLanding} /> */}
+       
         <AdminRoute exact path="/admin_session" component={AdminSession} />
         <AdminRoute path="/admin_session_edit" component={AdminSessionEdit} />
         <AdminRoute exact path="/admin_event" component={AdminEvent} />
@@ -159,18 +144,34 @@ export default function App() {
         <StudentRoute path="/session" component={SessionView} />
         <StudentRoute exact path="/events" component={StudentEvent} />
         <StudentRoute path="/event" component={EventView} />
-        <Route path="/oldLandingPage">
-          <OldLandingPage />
+         {/* <Route path="/components/:type/:subtype/:name">
+          <ComponentRenderer />
         </Route>
+        <Route path="/components/:type/:name">
+          <ComponentRenderer />
+        </Route> */}
+        {/* <Route path="/thank-you">
+          <ThankYouPage />
+        </Route> */}
+        {/* <Route path="/usercount">
+          <Hero />
+        </Route> */}
+        {/* <UnPrivateRoute path="/login" component={LoginPage} /> */}
+        {/* <UnPrivateRoute path="/register" component={SignupPage} /> */}
+        {/* <StudentRoute exact path="/student" component={StudentLanding} /> */}
+        {/* <AdminRoute exact path="/admin" component={AdminLanding} /> */}
+        {/* <Route path="/oldLandingPage">
+          <OldLandingPage />
+        </Route> */}
         {/* <Route path="/addslot">
           <AddSlot />
         </Route> */}
-        <Route path="/add">
+        {/* <Route path="/add">
           <AddResources />
         </Route>
         <Route path="/booked">
           <SlotsBooked />
-        </Route>
+        </Route> */}
         {/* <PrivateRoute path="/admin" component={Admin} /> */}
         <Route path="/">
           <Home />

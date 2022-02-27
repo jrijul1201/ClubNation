@@ -57,5 +57,19 @@ sessionRouter.get("/sessions", (req, res) => {
     }
   });
 });
+sessionRouter.post("/getsessionbyid", (req, res) => {
+  console.log("Fetching Session");
+  Session.findById(req.body._id).exec((err, document) => {
+    if (err) {
+      console.log("Sessions failed to fetch");
+      res.status(500).json({
+        message: { msgBody: "Sessions failed to fetch", msgError: true },
+      });
+    } else {
+      console.log("Sessions fetched successfully");
+      res.status(200).json({ session: document });
+    }
+  });
+});
 
 module.exports = sessionRouter;

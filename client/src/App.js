@@ -120,6 +120,8 @@ import OldLandingPage from "MainLandingPage.js";
 import ThankYouPage from "ThankYouPage.js";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import AdminLanding from "demos/AdminLanding";
+import AdminSession from "demos/AdminSession";
+import AdminSessionEdit from "demos/AdminSessionEdit";
 export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
   // return <AnimationRevealPage disabled>xxxxxxxxxx</AnimationRevealPage>;
@@ -141,8 +143,10 @@ export default function App() {
         </Route> */}
         {/* <UnPrivateRoute path="/login" component={LoginPage} /> */}
         {/* <UnPrivateRoute path="/register" component={SignupPage} /> */}
-        <StudentRoute path="/student" component={StudentLanding} />
-        <AdminRoute path="/admin" component={AdminLanding} />
+        <StudentRoute exact path="/student" component={StudentLanding} />
+        <AdminRoute exact path="/admin" component={AdminLanding} />
+        <AdminRoute exact path="/admin_session" component={AdminSession} />
+        <AdminRoute path="/admin_session_edit" component={AdminSessionEdit} />
         <Route path="/oldLandingPage">
           <OldLandingPage />
         </Route>

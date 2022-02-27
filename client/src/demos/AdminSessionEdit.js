@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AnimationRevealPage from "helpers/AnimationRevealPage.js";
 import Hero from "components/hero/BackgroundAsImageWithCenteredContent.js";
 // import HeroAdmin from "components/hero/NoOfUsers.js";
@@ -7,6 +7,7 @@ import Resources from "components/faqs/SingleCol.js";
 import AddResources from "components/features/AddResources.js";
 import AddSessions from "components/features/AddSessions.js";
 import SessionDetails from "components/cards/SessionDetails.js";
+import SessionService from "../Services/SessionService";
 import AddEvents from "components/features/AddEvents.js";
 import EventDetails from "components/cards/EventDetails.js";
 import SlotBooking from "components/faqs/ShowSlots.js";
@@ -25,7 +26,7 @@ import { AuthContext } from "../Context/AuthContext";
 
 const Subheading = tw.span`uppercase tracking-wider text-sm`;
 
-export default () => {
+export default (props) => {
   const {
     user,
     setUser,
@@ -34,42 +35,32 @@ export default () => {
     isAdmin,
     setIsAdmin,
   } = useContext(AuthContext);
+  const [session, setSession] = useState(null);
+  useEffect(() => {
+    SessionService.getSessionByID(props.location.search.slice(1)).then(
+      (data) => {
+        setSession(data.session);
+        console.log(session);
+      }
+    );
+  }, []);
 
+  // console.log(props.location.search.slice(1));
+  // console.log(session);
   const adminLP = () => {
     return (
       <>
         <AnimationRevealPage>
           <Hero getstarted="#bookaslot" />
-          <div id="bookaslot">
-            <AdminSlotBooking />
-          </div>
-          {/* <div>
-          <SlotsBooked />
-        </div> */}
-
-          <div id="events">
-            <EventDetails />
-          </div>
-          <div id="addevents">
-            <AddEvents />
-          </div>
-          {/* <div id="sessions">
+          {/* <div id="session">
             <SessionDetails />
-          </div>
-          <div id="addsessions">
+          </div> */}
+          {/* <div id="addsession">
             <AddSessions />
           </div> */}
-          {/* <div id="addresources">
+          <div id="addresources">
             <AddResources />
-          </div> */}
-
-          {/* <div id="userdetails">
-          <UserDetails />
-        </div> */}
-          {/* <div id="changepwd">
-          <ChangePwd />
           </div>
-          */}
         </AnimationRevealPage>
         <Footer />
       </>

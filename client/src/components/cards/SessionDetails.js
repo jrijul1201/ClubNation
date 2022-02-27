@@ -224,6 +224,7 @@ export default () => {
   );
 };*/
 import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import { motion } from "framer-motion";
 import UserdetailsService from "../../Services/UserdetailsService";
 import Slider from "react-slick";
@@ -378,6 +379,7 @@ export default () => {
     e.preventDefault();
     // alert("Chal gya");
   };
+  const PrimaryAction = tw.a``;
   const searchBar = () => {
     return (
       <FormContainer>
@@ -404,57 +406,58 @@ export default () => {
         <TabContent>
           <DecoratorBlob1 />
           <DecoratorBlob2 />
-           {sessions.map((session, index)=> {
+          {sessions.map((session, index) => {
             if (session.title.match(query)) {
               return (
                 <Card key={index}>
-              <CardImage imageSrc={session.img} />
-                <TextInfo>
-                  <TitleReviewContainer>
-                    <Title>{session.title}</Title>
-                    <RatingsInfo>
-                      <StarIcon />
-                 {/* <Rating>{session.rating}</Rating>*/}
-                    </RatingsInfo>
-                  </TitleReviewContainer>
-                  <SecondaryInfoContainer>
-                    <IconWithText>
-                      <IconContainer>
-                        <LocationIcon />
-                      </IconContainer>
-                      <Text>{session.date}</Text>
-                    </IconWithText>
-                    <IconWithText>
-                      <IconContainer>
-                        <PriceIcon />
-                      </IconContainer>
-                      <Text>{session.time}</Text>
-                    </IconWithText>
-                  </SecondaryInfoContainer>
-                  <SecondaryInfoContainer>
-                    <IconWithText>
-                      <IconContainer>
-                        <LocationIcon />
-                      </IconContainer>
-                      <Text>{session.mlink}</Text>
-                    </IconWithText>
-                    <IconWithText>
-                      <IconContainer>
-                        <PriceIcon />
-                      </IconContainer>
-                      <Text>{session.rlink}</Text>
-                    </IconWithText>
-                  </SecondaryInfoContainer>
-                  <Description>{session.description}</Description>
-                </TextInfo>
-                <PrimaryButton>Book Now</PrimaryButton>
-              </Card>
+                  <CardImage imageSrc={session.img} />
+                  <TextInfo>
+                    <TitleReviewContainer>
+                      <Title>{session.title}</Title>
+                      <RatingsInfo>
+                        <StarIcon />
+                        {/* <Rating>{session.rating}</Rating>*/}
+                      </RatingsInfo>
+                    </TitleReviewContainer>
+                    <SecondaryInfoContainer>
+                      <IconWithText>
+                        <IconContainer>
+                          <LocationIcon />
+                        </IconContainer>
+                        <Text>{session.date}</Text>
+                      </IconWithText>
+                      <IconWithText>
+                        <IconContainer>
+                          <PriceIcon />
+                        </IconContainer>
+                        <Text>{session.time}</Text>
+                      </IconWithText>
+                    </SecondaryInfoContainer>
+                    <SecondaryInfoContainer>
+                      <IconWithText>
+                        <IconContainer>
+                          <LocationIcon />
+                        </IconContainer>
+                        <Text>{session.mlink}</Text>
+                      </IconWithText>
+                      <IconWithText>
+                        <IconContainer>
+                          <PriceIcon />
+                        </IconContainer>
+                        <Text>{session.rlink}</Text>
+                      </IconWithText>
+                    </SecondaryInfoContainer>
+                    <Description>{session.description}</Description>
+                  </TextInfo>
+                  <a href={"#/admin_session_edit?"+session._id}>
+                    <PrimaryButton>Session Details</PrimaryButton>
+                  </a>
+                </Card>
               );
             } else {
               return <></>;
             }
-           })}
-     
+          })}
         </TabContent>
       </Content>
     </Container>

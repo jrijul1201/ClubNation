@@ -40,36 +40,15 @@ export default () => {
       <>
         <AnimationRevealPage>
           <Hero getstarted="#bookaslot" />
-          <div id="bookaslot">
-            <AdminSlotBooking />
-          </div>
-          {/* <div>
-          <SlotsBooked />
-        </div> */}
-
-          <div id="events">
-            <EventDetails />
-          </div>
-          <div id="addevents">
-            <AddEvents />
-          </div>
-          {/* <div id="sessions">
+          <div id="sessions">
             <SessionDetails />
           </div>
           <div id="addsessions">
             <AddSessions />
-          </div> */}
-          {/* <div id="addresources">
-            <AddResources />
-          </div> */}
-
-          {/* <div id="userdetails">
-          <UserDetails />
-        </div> */}
-          {/* <div id="changepwd">
-          <ChangePwd />
           </div>
-          */}
+          <div id="addresources">
+            <AddResources />
+          </div>
         </AnimationRevealPage>
         <Footer />
       </>

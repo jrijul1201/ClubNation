@@ -6,6 +6,19 @@ export default {
         } else return { message: { msgBody: "UnAuthorized", msgError: true } };
       });
     },
+    getSessionByID: (id) => {
+      return fetch("/session/getsessionbyid", {
+        method: "post",
+        body: JSON.stringify({_id: id}),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((response) => {
+        if (response.status !== 401) {
+          return response.json().then((data) => data);
+        } else return { message: { msgBody: "UnAuthorized" }, msgError: true };
+      });
+    },
     postSession: (session) => {
       return fetch("/session/addsession", {
         method: "post",

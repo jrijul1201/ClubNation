@@ -80,7 +80,7 @@ const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
 
 const CardImage = styled.div((props) => [
   `background-image: url("${props.imageSrc}");`,
-  tw`w-full h-56 sm:h-64 bg-cover bg-center rounded sm:rounded-none sm:rounded-tl-4xl`,
+  tw`w-full h-56 sm:h-64 bg-cover bg-center rounded sm:rounded-none sm:rounded-tl-2xl sm:rounded-tr-2xl`,
 ]);
 
 const TextInfo = tw.div`py-6 px-10 py-6`;
@@ -109,7 +109,7 @@ const Text = tw.div`ml-2 text-sm font-semibold text-gray-800`;
 
 const PrimaryButton = tw(
   PrimaryButtonBase
-)`mt-auto sm:text-lg rounded-none w-full rounded sm:rounded-none sm:rounded-br-4xl py-3 sm:py-6`;
+)`mt-auto sm:text-lg rounded-none w-full rounded sm:rounded-none sm:rounded-br-2xl sm:rounded-bl-2xl py-3 sm:py-6`;
 
 export default () => {
   // useState is used instead of useRef below because we want to re-render when sliderRef becomes available (not null)
@@ -187,7 +187,7 @@ export default () => {
             if (event.title.match(query)) {
               return (
                 <Card key={index}>
-             {/*   <CardImage imageSrc={session.imageSrc} />*/}
+           <CardImage imageSrc={event.img} />
                 <TextInfo>
                   <TitleReviewContainer>
                     <Title>{event.title}</Title>
@@ -215,7 +215,8 @@ export default () => {
                       <IconContainer>
                         <RegIcon />
                       </IconContainer>
-                      <Text>{event.reglink}</Text>
+                      <a href={event.reglink} target="_blank">
+                    <Text>Registration Link</Text></a>
                     </IconWithText>
                  
                   </SecondaryInfoContainer>

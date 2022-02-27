@@ -151,11 +151,14 @@ const AddSessions = (props) => {
     };
     return (
         // <AnimationRevealPage>
+        
         <Container tw="m-8">
             <ContentWithPaddingXl>
                 <Column>
+            <SessionDetails sessions={sessions}/>
+
                     <HeaderContent>
-                        <Subheading>CapiBull</Subheading>
+                        {/* <Subheading>CapiBull</Subheading> */}
                         <Heading>Add Sessions</Heading>
                         <p align="center">
                             <Description>
@@ -224,7 +227,6 @@ const AddSessions = (props) => {
                         </p>
                     </Form>
 
-            <SessionDetails sessions={sessions}/>
 
 {/* 
                     <FAQSContainer>

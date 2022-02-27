@@ -123,7 +123,7 @@ import AdminLanding from "demos/AdminLanding";
 import AdminSession from "demos/AdminSession";
 import StudentSession from "demos/StudentSession";
 import AdminSessionEdit from "demos/AdminSessionEdit";
-// import EventView from "demos/EventView";
+import EventView from "demos/EventView";
 import AdminEvent from "demos/AdminEvent";
 import StudentEvent from "demos/StudentEvent";
 import AdminEventEdit from "demos/AdminEventEdit";
@@ -158,7 +158,7 @@ export default function App() {
         <StudentRoute exact path="/sessions" component={StudentSession} />
         <StudentRoute path="/session" component={SessionView} />
         <StudentRoute exact path="/events" component={StudentEvent} />
-        {/* <StudentRoute path="/event" component={EventView} /> */}
+        <StudentRoute path="/event" component={EventView} />
         <Route path="/oldLandingPage">
           <OldLandingPage />
         </Route>

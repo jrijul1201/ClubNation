@@ -4,6 +4,7 @@ const resourceRouter = express.Router();
 const Resource = require("../models/Resource");
 
 resourceRouter.post("/addresource", (req, res) => {
+  console.log("hello1");
   const { title, description, media, SEID } = req.body;
 
   const newResource = new Resource({
@@ -13,11 +14,13 @@ resourceRouter.post("/addresource", (req, res) => {
     SEID,
   });
   newResource.save((err) => {
-    if (err)
+    if (err) {
+      console.log(err);
+
       res.status(500).json({
         message: { msgBody: "Error has occured", msgError: true },
       });
-    else
+    } else
       res.status(201).json({
         message: {
           msgBody: "Resource successfully added",
@@ -54,8 +57,8 @@ resourceRouter.post("/resources", (req, res) => {
       for (const doc of document) {
         if (doc.SEID === req.body.SEID) {
           reso.push(doc);
-        };
-      };
+        }
+      }
       res.status(200).json({ resources: reso });
     }
   });

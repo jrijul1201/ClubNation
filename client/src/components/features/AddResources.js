@@ -26,7 +26,7 @@ const Heading = tw(SectionHeading)`w-full`;
 
 const Description = tw(SectionDescription)`items-center w-full text-center`;
 
-const Column = tw.div`flex flex-col items-center`;
+const Column = tw.div`flex flex-col items-center -mt-32`;
 const HeaderContent = tw.div``;
 
 const Form = tw.form`mx-auto max-w-3xl`;
@@ -163,7 +163,7 @@ const AddResources = ({
           {isAdmin ? (
             <>
               <HeaderContent>
-                <Subheading>CapiBull</Subheading>
+                {/* <Subheading>CapiBull</Subheading> */}
                 <Heading>Add Resources and References</Heading>
                 <p align="center">
                   <Description>

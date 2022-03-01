@@ -18,6 +18,9 @@ We plan on building portals for club members as well as coordinators. Events/ses
     > npm install
     > cd client
     > npm install
+    
+    Also add a config.env file with the format:
+    MONGODB = "<API_KEY>"
 
 # Development Mode
     - Terminal 1 (Back-End)

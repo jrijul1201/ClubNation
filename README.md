@@ -19,7 +19,7 @@ We plan on building portals for club members as well as coordinators. Events/ses
     > cd client
     > npm install
     
-    Also add a config.env file with the format:
+    Also add a config.env file in the root directory with the format:
     MONGODB = "<API_KEY>"
 
 # Development Mode
